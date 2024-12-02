@@ -1,18 +1,36 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem.Editor;
+using UnityEngine.UIElements;
 
-public class movement : MonoBehaviour {
+/// <summary>
+/// Class voor movement van character.
+/// </summary>
+public class Movement : MonoBehaviour {
 
     private float moveSpeed = 5f;
-    Vector3 movementValue;
+    private float jumpHeight = 1;
+    //time it takes to reach max height (or 0 velocity)
+    private float jumpTimeMaxHeight = 0.3f;
+    private float gravity;
+    private float jumpVelocity;
+    private Vector3 startPos;
+    //movement values opgeslagen in vector3
+    private Vector3 movementValue;
+    private CharacterController cc;
 
-    [SerializeField] CharacterController cc;
+
+    private void Start() {
+        cc = GetComponent<CharacterController>();
+
+        startPos = gameObject.transform.position;
+        gravity = -(2 * jumpHeight) / Mathf.Pow (jumpTimeMaxHeight, 2);
+        jumpVelocity = Mathf.Abs(gravity) * jumpTimeMaxHeight;
+    }
 
     private void Walk() {
-        //keypresses registreren en op vector zetten
         movementValue.x = Input.GetAxisRaw("Horizontal");
         movementValue.z = Input.GetAxisRaw("Vertical");
-        movementValue.y = 0;
     }
 
     private void Run() {
@@ -23,13 +41,34 @@ public class movement : MonoBehaviour {
         }
     }
 
-    void Update() {
-        Walk();
-        Run();
+    private void Jump() {
+        if(cc.isGrounded && Input.GetKeyDown(KeyCode.Space)) {
+            movementValue.y = jumpVelocity;
+        }
+    }
+
+    private void ApplyGravity() {
+        movementValue.y += gravity * Time.deltaTime;
+
+        //gravity niet te snel laten gaan door het te limiteren
+        if(movementValue.y < -5) {
+            movementValue.y = -5;
+        }
+    }
+
+    private void Update() {
+        Jump();
     }
     
-    void FixedUpdate() {
-        //apply movement
+    private void FixedUpdate() {
+        Walk();
+        Run();
+
+        //movement apply'en
         cc.Move(movementValue * moveSpeed * Time.fixedDeltaTime);
+        ApplyGravity();
+        if (gameObject.transform.position.y <= -25f) {
+            transform.position = startPos;            
+        }
     }
 }
