@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 571825937}
   - component: {fileID: 571825936}
   - component: {fileID: 571825935}
+  - component: {fileID: 571825939}
   m_Layer: 0
   m_Name: main_Character
   m_TagString: Untagged
@@ -150,6 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f15b3be56a62aae4bbb04a56d7d14dbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementValue: {x: 0, y: 0, z: 0}
 --- !u!143 &571825936
 CharacterController:
   m_ObjectHideFlags: 0
@@ -246,6 +248,19 @@ Transform:
   - {fileID: 1056586481}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 35, y: 0, z: 0}
+--- !u!114 &571825939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571825934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8044b1ba0420ea42b234f84899dc10d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireBall: {fileID: 8007807846535373962, guid: e6a961a4bea11594b98051723814c791, type: 3}
 --- !u!1 &640235509
 GameObject:
   m_ObjectHideFlags: 0

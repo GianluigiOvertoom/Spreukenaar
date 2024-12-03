@@ -1,22 +1,21 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem.Editor;
-using UnityEngine.UIElements;
 
 /// <summary>
-/// Class voor movement van character.
+/// Movement class
 /// </summary>
-public class Movement : MonoBehaviour {
+public class PlayerController : MonoBehaviour {
 
     private float moveSpeed = 5f;
-    private float jumpHeight = 1;
+    private float jumpHeight = 5;
     //time it takes to reach max height (or 0 velocity)
     private float jumpTimeMaxHeight = 0.3f;
     private float gravity;
     private float jumpVelocity;
     private Vector3 startPos;
-    //movement values opgeslagen in vector3
-    private Vector3 movementValue;
+    //save inputs in vector3
+    public Vector3 movementValue;
+    private Vector2 xzValue;
+    private float jumpValue;
     private CharacterController cc;
 
 
@@ -29,8 +28,9 @@ public class Movement : MonoBehaviour {
     }
 
     private void Walk() {
-        movementValue.x = Input.GetAxisRaw("Horizontal");
-        movementValue.z = Input.GetAxisRaw("Vertical");
+        xzValue.x = Input.GetAxisRaw("Horizontal");
+        xzValue.y = Input.GetAxisRaw("Vertical");
+        xzValue = new Vector2(xzValue.x, xzValue.y).normalized;
     }
 
     private void Run() {
@@ -43,16 +43,22 @@ public class Movement : MonoBehaviour {
 
     private void Jump() {
         if(cc.isGrounded && Input.GetKeyDown(KeyCode.Space)) {
-            movementValue.y = jumpVelocity;
+            jumpValue = jumpVelocity;
         }
     }
 
     private void ApplyGravity() {
-        movementValue.y += gravity * Time.deltaTime;
+        jumpValue += gravity * Time.deltaTime;
 
-        //gravity niet te snel laten gaan door het te limiteren
-        if(movementValue.y < -5) {
-            movementValue.y = -5;
+        //limiting gravity strength
+        if(jumpValue < -20) {
+            jumpValue = -20;
+        }
+    }
+
+    private void RespawnCharacter() {
+        if (transform.position.y <= -25f) {
+            transform.position = startPos;            
         }
     }
 
@@ -64,11 +70,11 @@ public class Movement : MonoBehaviour {
         Walk();
         Run();
 
-        //movement apply'en
-        cc.Move(movementValue * moveSpeed * Time.fixedDeltaTime);
+        //apply movement to cc
+        movementValue = new Vector3(xzValue.x * moveSpeed, jumpValue, xzValue.y * moveSpeed);
+        cc.Move(movementValue * Time.fixedDeltaTime);
+        
         ApplyGravity();
-        if (gameObject.transform.position.y <= -25f) {
-            transform.position = startPos;            
-        }
+        RespawnCharacter();
     }
 }
