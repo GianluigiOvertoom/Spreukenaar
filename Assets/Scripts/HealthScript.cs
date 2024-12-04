@@ -1,7 +1,9 @@
+using TMPro;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.U2D.IK;
+using UnityEngine.UI;
 
 /// <summary>
 /// Health system
@@ -11,6 +13,7 @@ public class HealthScript : MonoBehaviour {
     private float PlayerHealth;
     private CharacterController cc;
     private SpriteRenderer spRend;
+    [SerializeField] private TextMeshProUGUI healthDisplay;
 
 
     private void Start() {
@@ -37,8 +40,12 @@ public class HealthScript : MonoBehaviour {
         }
     }
 
+    private void DisplayHealth() {
+        healthDisplay.text = "Target: " + PlayerHealth + "HP";
+    }
+
     private void Update() {
         DeathCheck();
-        Debug.Log("Player Health: " + PlayerHealth + " HP");
+        DisplayHealth();
     }
 }
