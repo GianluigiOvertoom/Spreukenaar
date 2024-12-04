@@ -12,11 +12,8 @@ public class ShootProjectile : MonoBehaviour {
             //Spawn fireball, asign script, rotate sprite
             GameObject fbInstance = Instantiate(fireBall, transform.position, Quaternion.identity);
             fbInstance.GetComponent<FireBall>().pcScript = GetComponent<PlayerController>();
-            fbInstance.GetComponentInChildren<Transform>().localRotation = new Quaternion(35f,0,0,0);
         }
     }
-
-    //receive movementvalue (x,z --> move direction)
     
     private void Update() {
         PlayerShoot();
