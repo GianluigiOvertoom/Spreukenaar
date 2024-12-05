@@ -30,10 +30,6 @@ public class HealthScript : MonoBehaviour {
     private void DeathCheck() {
         if(PlayerHealth <= 0) {
             PlayerHealth = 0;
-            //destroy all components that arnt allowed to work
-            //ik wil hier het target script destroyen dat op dit object staat, niet ook de rest van de targetscripts (note: .enabled false is niet genoeg, dan kan ie hem toch nog vinden als target... (transform.pos veranderen als target 'dood gaat?'))
-            // Destroy(GetComponentInParent<TargetScript>());
-            GetComponent<CharacterController>().enabled = false;
             //fade out
             spRend.color = spRend.color - new Color(0,0,0,0.5f) * Time.deltaTime;
             if(spRend.color.a <= 0) {

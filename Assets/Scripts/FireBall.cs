@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 /// <summary>
 /// Fireball Behaviour
@@ -6,13 +7,14 @@ using UnityEngine;
 public class FireBall : MonoBehaviour {
 
     private float fbMoveSpeed = 15f;
-    private float fbDestroySpeed = 0.85f;
     private float fbDamage = 10f;
     private Vector3 moveDir;
     public PlayerController pcScript;
     private float hitDetectionSize = 1f;
+    private HealthScript healthScript;
+    private bool damageDealt = false;
 
-    private void Start() { ;
+    private void Start() { 
         if (pcScript.movementValue.x != 0) {
             moveDir = new Vector3(Mathf.Sign(pcScript.movementValue.x), 0, pcScript.movementValue.z);
         } else {
@@ -26,10 +28,21 @@ public class FireBall : MonoBehaviour {
     }
 
     private void ProjectileFallOff() {
-        transform.localScale -= new Vector3(1,1,1) * fbDestroySpeed * Time.deltaTime;
-        
-        if(transform.localScale.x <= 0) {
+        if(transform.position.x >= 50 || transform.position.x <= -50 || transform.position.z >= 50 || transform.position.z <= -50) {
             Destroy(gameObject);
+        }
+    }
+
+    private void TargetCheckerNew() {
+        Collider[] detectedColliders = Physics.OverlapSphere(transform.position, 2f);
+        foreach (Collider collider in detectedColliders) {
+            if(collider.GetComponent<HealthScript>() && damageDealt == false) {
+                healthScript = collider.GetComponent<HealthScript>();
+                healthScript.DealDamage(fbDamage);
+                damageDealt = true;
+                //destroy for now, 'turn off' later
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -39,22 +52,23 @@ public class FireBall : MonoBehaviour {
 
     private void TargetChecker() {
         //check for any nearby targets
-        TargetScript target = TargetScript.GetClosest(transform.position, hitDetectionSize);
+        // TargetScript target = TargetScript.GetClosest(transform.position, hitDetectionSize);
 
         //if target detected, get the healthscript on them and damage them appropriately
-        if(target !=null) {
-            HealthScript targetHealth = target.GetComponent<HealthScript>();
-            targetHealth.DealDamage(fbDamage);
-            Destroy(gameObject);
-            Debug.Log("Hit");
-        } else {
-            Debug.Log(">.< Mis poes appelmoes >.<");
-        }
+        // if(target !=null) {
+        //     HealthScript targetHealth = target.GetComponent<HealthScript>();
+        //     targetHealth.DealDamage(fbDamage);
+        //     Destroy(gameObject);
+        //     Debug.Log("Hit");
+        // } else {
+        //     Debug.Log(">.< Mis poes appelmoes >.<");
+        // }
     }
 
     private void Update() {
         ProjectileMovement();
         ProjectileFallOff();   
-        TargetChecker();   
+        TargetChecker();
+        TargetCheckerNew();
     }
 }
