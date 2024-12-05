@@ -7,9 +7,9 @@ public class FireBall : MonoBehaviour {
 
     private float fbMoveSpeed = 15f;
     private float fbDestroySpeed = 0.85f;
+    private float fbDamage = 10f;
     private Vector3 moveDir;
     public PlayerController pcScript;
-    private HealthScript healthScript;
     private float hitDetectionSize = 1f;
 
     private void Start() { ;
@@ -23,8 +23,6 @@ public class FireBall : MonoBehaviour {
             }
         }
         moveDir = moveDir.normalized;
-
-        healthScript = GetComponent<HealthScript>();
     }
 
     private void ProjectileFallOff() {
@@ -46,8 +44,9 @@ public class FireBall : MonoBehaviour {
         //if target detected, get the healthscript on them and damage them appropriately
         if(target !=null) {
             HealthScript targetHealth = target.GetComponent<HealthScript>();
-            targetHealth.DealDamage(10f);
+            targetHealth.DealDamage(fbDamage);
             Destroy(gameObject);
+            Debug.Log("Hit");
         } else {
             Debug.Log(">.< Mis poes appelmoes >.<");
         }

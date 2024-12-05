@@ -14,6 +14,7 @@ public class HealthScript : MonoBehaviour {
     private CharacterController cc;
     private SpriteRenderer spRend;
     [SerializeField] private TextMeshProUGUI healthDisplay;
+    public int playerNum;
 
 
     private void Start() {
@@ -28,20 +29,22 @@ public class HealthScript : MonoBehaviour {
 
     private void DeathCheck() {
         if(PlayerHealth <= 0) {
+            PlayerHealth = 0;
             //destroy all components that arnt allowed to work
-            Destroy(GetComponent<TargetScript>());
-            Destroy(GetComponent<PlayerController>());
-            Destroy(GetComponent<CharacterController>());
+            //ik wil hier het target script destroyen dat op dit object staat, niet ook de rest van de targetscripts (note: .enabled false is niet genoeg, dan kan ie hem toch nog vinden als target... (transform.pos veranderen als target 'dood gaat?'))
+            // Destroy(GetComponentInParent<TargetScript>());
+            GetComponent<CharacterController>().enabled = false;
             //fade out
             spRend.color = spRend.color - new Color(0,0,0,0.5f) * Time.deltaTime;
             if(spRend.color.a <= 0) {
-                Destroy(gameObject);
+                GetComponent<HealthScript>().enabled = false;
+                gameObject.SetActive(false);
             }
         }
     }
 
     private void DisplayHealth() {
-        healthDisplay.text = "Target: " + PlayerHealth + "HP";
+        healthDisplay.text = "Target " + playerNum + ":" + PlayerHealth + "HP";
     }
 
     private void Update() {
