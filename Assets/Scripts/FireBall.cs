@@ -34,13 +34,14 @@ public class FireBall : MonoBehaviour {
     }
 
     private void TargetCheckerNew() {
+        //check for nearby colliders
         Collider[] detectedColliders = Physics.OverlapSphere(transform.position, 2f);
         foreach (Collider collider in detectedColliders) {
             if(collider.GetComponent<HealthScript>() && damageDealt == false) {
                 healthScript = collider.GetComponent<HealthScript>();
                 healthScript.DealDamage(fbDamage);
                 damageDealt = true;
-                //destroy for now, 'turn off' later
+                //destroy for now, 're-use' later
                 Destroy(gameObject);
             }
         }
@@ -50,25 +51,9 @@ public class FireBall : MonoBehaviour {
         transform.position += moveDir * fbMoveSpeed * Time.deltaTime;
     }
 
-    private void TargetChecker() {
-        //check for any nearby targets
-        // TargetScript target = TargetScript.GetClosest(transform.position, hitDetectionSize);
-
-        //if target detected, get the healthscript on them and damage them appropriately
-        // if(target !=null) {
-        //     HealthScript targetHealth = target.GetComponent<HealthScript>();
-        //     targetHealth.DealDamage(fbDamage);
-        //     Destroy(gameObject);
-        //     Debug.Log("Hit");
-        // } else {
-        //     Debug.Log(">.< Mis poes appelmoes >.<");
-        // }
-    }
-
     private void Update() {
         ProjectileMovement();
-        ProjectileFallOff();   
-        TargetChecker();
+        ProjectileFallOff();
         TargetCheckerNew();
     }
 }
