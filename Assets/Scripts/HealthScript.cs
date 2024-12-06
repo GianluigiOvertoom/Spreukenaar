@@ -10,7 +10,7 @@ using UnityEngine.UI;
 /// </summary>
 public class HealthScript : MonoBehaviour {
     
-    private float PlayerHealth;
+    public float PlayerHealth;
     private CharacterController cc;
     private SpriteRenderer spRend;
     [SerializeField] private TextMeshProUGUI healthDisplay;

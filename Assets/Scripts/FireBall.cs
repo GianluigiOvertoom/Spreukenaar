@@ -12,7 +12,6 @@ public class FireBall : MonoBehaviour {
     public PlayerController pcScript;
     private float hitDetectionSize = 1f;
     private HealthScript healthScript;
-    private bool damageDealt = false;
 
     private void Start() { 
         if (pcScript.movementValue.x != 0) {
@@ -35,14 +34,15 @@ public class FireBall : MonoBehaviour {
 
     private void TargetCheckerNew() {
         //check for nearby colliders
-        Collider[] detectedColliders = Physics.OverlapSphere(transform.position, 2f);
+        Collider[] detectedColliders = Physics.OverlapSphere(transform.position, 0.95f);
         foreach (Collider collider in detectedColliders) {
-            if(collider.GetComponent<HealthScript>() && damageDealt == false) {
+            if(collider.GetComponent<HealthScript>()) {
                 healthScript = collider.GetComponent<HealthScript>();
                 healthScript.DealDamage(fbDamage);
-                damageDealt = true;
-                //destroy for now, 're-use' later
-                Destroy(gameObject);
+                if(healthScript.PlayerHealth > 0) {
+                    //destroy for now, store and re-use later
+                    Destroy(gameObject);
+                }
             }
         }
     }
