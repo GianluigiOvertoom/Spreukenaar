@@ -56,6 +56,7 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    //respawn character when falling for now, later on, kill character instead
     private void RespawnCharacter() {
         if (transform.position.y <= -25f) {
             transform.position = startPos;            
@@ -72,7 +73,7 @@ public class PlayerController : MonoBehaviour {
 
         //apply movement to cc
         movementValue = new Vector3(xzValue.x * moveSpeed, jumpValue, xzValue.y * moveSpeed);
-        cc.Move(movementValue * Time.fixedDeltaTime);
+        cc.Move(movementValue * Time.deltaTime);
         
         ApplyGravity();
         RespawnCharacter();

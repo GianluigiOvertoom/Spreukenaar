@@ -45,7 +45,7 @@ public class HealthScript : MonoBehaviour {
     }
 
     private void DisplayHealth() {
-        healthDisplay.text = "Target " + playerNum + ":" + PlayerHealth + "HP";        
+        healthDisplay.text = "Target " + playerNum + " : " + PlayerHealth + " HP";        
     }
 
     private void Update() {
