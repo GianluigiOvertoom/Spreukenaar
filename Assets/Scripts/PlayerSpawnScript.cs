@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class PlayerSpawnScript : MonoBehaviour {
@@ -8,7 +9,7 @@ public class PlayerSpawnScript : MonoBehaviour {
     private int minValueX = -6;
     private int maxValueX = 6;
     private int increment = 3;
-    List<int> possiblePos = new List<int>();
+    List<int> possiblePos = new List<int>();            
 
     private void Start() {
         NewRandomNumbers();

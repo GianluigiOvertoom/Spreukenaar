@@ -13,14 +13,17 @@ public class HealthScript : MonoBehaviour {
     public float PlayerHealth;
     private CharacterController cc;
     private SpriteRenderer spRend;
-    [SerializeField] private TextMeshProUGUI healthDisplay;
+    private GameObject canvas;
     public int playerNum;
+    private TextMeshProUGUI healthDisplay;
 
 
     private void Start() {
+        PlayerHealth = 100f;
         cc = GetComponent<CharacterController>();
         spRend = GetComponentInChildren<SpriteRenderer>();
-        PlayerHealth = 100f;
+        canvas = GameObject.Find("Canvas");
+        healthDisplay = canvas.transform.GetChild(playerNum - 1).GetComponent<TextMeshProUGUI>();  
     }
 
     public void DealDamage(float amountOfDamage) {
@@ -30,6 +33,8 @@ public class HealthScript : MonoBehaviour {
     private void DeathCheck() {
         if(PlayerHealth <= 0) {
             PlayerHealth = 0;
+            //disable character controller/ (collision)
+            cc.enabled = false;
             //fade out
             spRend.color = spRend.color - new Color(0,0,0,0.5f) * Time.deltaTime;
             if(spRend.color.a <= 0) {
@@ -40,7 +45,7 @@ public class HealthScript : MonoBehaviour {
     }
 
     private void DisplayHealth() {
-        healthDisplay.text = "Target " + playerNum + ":" + PlayerHealth + "HP";
+        healthDisplay.text = "Target " + playerNum + ":" + PlayerHealth + "HP";        
     }
 
     private void Update() {
