@@ -133,3 +133,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pcScript: {fileID: 0}
+  collisionLayers:
+    serializedVersion: 2
+    m_Bits: 268435464
