@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4d182be19b8b3f44eb53d28bcefdecd1
+guid: eeb1a4f60df20b940b20b2420ec9e084
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8667890099241481944
-    second: Placeholder_FirePlayerCharacter_0
+      213: -4151198476206427123
+    second: Placeholder_Spell_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Placeholder_FirePlayerCharacter_0
+      name: Placeholder_Spell_0
       rect:
         serializedVersion: 2
-        x: 119
-        y: 105
-        width: 262
-        height: 297
+        x: 0
+        y: 9
+        width: 160
+        height: 142
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8d6f96dee188a4870800000000000000
-      internalID: 8667890099241481944
+      spriteID: d04b299dafaf366c0800000000000000
+      internalID: -4151198476206427123
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Placeholder_FirePlayerCharacter_0: 8667890099241481944
+      Placeholder_Spell_0: -4151198476206427123
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
