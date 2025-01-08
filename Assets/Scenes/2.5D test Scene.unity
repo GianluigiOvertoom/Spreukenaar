@@ -1233,7 +1233,7 @@ GameObject:
   - component: {fileID: 1520455595}
   - component: {fileID: 1520455594}
   - component: {fileID: 1520455593}
-  m_Layer: 28
+  m_Layer: 29
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1506,7 +1506,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1814592750}
-  m_Layer: 0
+  m_Layer: 29
   m_Name: Environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}

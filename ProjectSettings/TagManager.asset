@@ -34,8 +34,8 @@ TagManager:
   - 
   - 
   - Walls
+  - Enviornment
   - Background
-  - 
   - 
   m_SortingLayers:
   - name: Default

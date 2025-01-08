@@ -11,8 +11,8 @@ public class FireBall : MonoBehaviour {
     private float fbDamage = 10f;
     private Vector3 moveDir;
     public PlayerController pcScript;
-    private float hitDetectionSize = 1f;
     private HealthScript healthScript;
+    private WallBehaviour wallScript;
     [SerializeField] private LayerMask collisionLayers;
 
     private void Start() { 
@@ -34,16 +34,20 @@ public class FireBall : MonoBehaviour {
         }
     }
 
-    private void TargetCheckerNew() {
+    private void TargetChecker() {
         //check for nearby colliders
         Collider[] detectedColliders = Physics.OverlapSphere(transform.position, 0.95f, collisionLayers);
         foreach (Collider collider in detectedColliders) {
             if(collider.GetComponent<HealthScript>()) {
                 healthScript = collider.GetComponent<HealthScript>();
                 healthScript.DealDamage(fbDamage);
+            }   else if (collider.GetComponentInParent<WallBehaviour>()) {
+                wallScript = collider.GetComponentInParent<WallBehaviour>();
+                wallScript.WallDamage(fbDamage);
             }
             if(collider.gameObject != pcScript.gameObject) {
                 Destroy(gameObject);
+                return;
             }
         }
     }
@@ -55,6 +59,6 @@ public class FireBall : MonoBehaviour {
     private void Update() {
         ProjectileMovement();
         ProjectileFallOff();
-        TargetCheckerNew();
+        TargetChecker();
     }
 }

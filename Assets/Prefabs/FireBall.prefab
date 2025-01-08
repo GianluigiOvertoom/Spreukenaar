@@ -135,4 +135,4 @@ MonoBehaviour:
   pcScript: {fileID: 0}
   collisionLayers:
     serializedVersion: 2
-    m_Bits: 268435464
+    m_Bits: 805306376

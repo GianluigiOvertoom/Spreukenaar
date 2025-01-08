@@ -10,6 +10,7 @@ public class WallBehaviour : MonoBehaviour {
     private Vector3 movementValue;
     private Vector3 wallOfset;
     private float ofsetDistance = 3;
+    private float wallHealth;
 
     private void Awake() {
         pcScript = GetComponent<PlayerController>();
@@ -19,6 +20,7 @@ public class WallBehaviour : MonoBehaviour {
         wallStartHeight = transform.position.y;
         movementValue = pcScript.movementValue;
         WallDirection();
+        wallHealth = 50;
     }
 
     private void WallDirection() {
@@ -44,7 +46,6 @@ public class WallBehaviour : MonoBehaviour {
             //down (idle)
             wallOfset.z = -ofsetDistance;
         }
-        
 
         //apply wallofset
         transform.position += wallOfset;
@@ -56,7 +57,19 @@ public class WallBehaviour : MonoBehaviour {
         }
     }
 
+    public void WallDamage(float amountOfDamage) {
+        wallHealth -= amountOfDamage;
+        Debug.Log(wallHealth);
+    }
+
+    private void DeathCheck() {
+        if(wallHealth <= 0) {
+            gameObject.SetActive(false);
+        }
+    }
+
     private void Update() {
         GrowWall();
+        DeathCheck();
     }
 }
