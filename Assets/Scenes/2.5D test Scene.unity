@@ -610,6 +610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementValue: {x: 0, y: 0, z: 0}
+  cc: {fileID: 0}
 --- !u!143 &571825936
 CharacterController:
   m_ObjectHideFlags: 0
@@ -664,6 +665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireBall: {fileID: 8007807846535373962, guid: e6a961a4bea11594b98051723814c791, type: 3}
+  wallPrefab: {fileID: 3587367112766006208, guid: d9d829dc463069047b5d06e909aba6f5, type: 3}
 --- !u!1 &854802448
 GameObject:
   m_ObjectHideFlags: 0

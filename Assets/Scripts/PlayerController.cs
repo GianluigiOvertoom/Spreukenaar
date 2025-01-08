@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour {
     public Vector3 movementValue;
     private Vector2 xzValue;
     private float jumpValue;
-    private CharacterController cc;
+    public CharacterController cc;
 
 
     private void Start() {
