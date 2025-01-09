@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour {
     private Vector2 xzValue;
     private float jumpValue;
     public CharacterController cc;
+    public Vector3 lastMoveDir;
 
 
     private void Start() {
@@ -31,6 +32,10 @@ public class PlayerController : MonoBehaviour {
         xzValue.x = Input.GetAxisRaw("Horizontal");
         xzValue.y = Input.GetAxisRaw("Vertical");
         xzValue = new Vector2(xzValue.x, xzValue.y).normalized;
+
+        if(xzValue != Vector2.zero) {
+            lastMoveDir = new Vector3(xzValue.x, 0, xzValue.y);
+        }
     }
 
     private void Run() {

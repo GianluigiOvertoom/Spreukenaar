@@ -24,26 +24,23 @@ public class WallBehaviour : MonoBehaviour {
     }
 
     private void WallDirection() {
-        if(movementValue.x > 0) {
+        if(movementValue == new Vector3(0,-20,0)) {
+            wallOfset = pcScript.lastMoveDir;
+             //last move direction uit playercontroller pakken
+        }
+
+        if(pcScript.lastMoveDir.x > 0) {
             //right
             wallOfset.x = ofsetDistance;
             transform.rotation = Quaternion.Euler(0, 90, 0);
-        } else if(movementValue.x < 0) {
-            //left
+        } else if(pcScript.lastMoveDir.x < 0) {
             wallOfset.x = -ofsetDistance;
             transform.rotation = Quaternion.Euler(0, -90, 0);
-        } 
+        }
 
-        if(movementValue.z > 0) {
-            //up
+        if(pcScript.lastMoveDir.z > 0) {
             wallOfset.z = ofsetDistance;
-        } else if(movementValue.z < 0) {
-            //down
-            wallOfset.z = -ofsetDistance;
-        } 
-
-        if(movementValue.x == 0 && movementValue.z == 0) {
-            //down (idle)
+        } else if(pcScript.lastMoveDir.z < 0) {
             wallOfset.z = -ofsetDistance;
         }
 
@@ -59,7 +56,6 @@ public class WallBehaviour : MonoBehaviour {
 
     public void WallDamage(float amountOfDamage) {
         wallHealth -= amountOfDamage;
-        Debug.Log(wallHealth);
     }
 
     private void DeathCheck() {
@@ -71,5 +67,8 @@ public class WallBehaviour : MonoBehaviour {
     private void Update() {
         GrowWall();
         DeathCheck();
+
+        Debug.Log("movementvalue = " + movementValue);
+        Debug.Log("lastmovedir = " + pcScript.lastMoveDir);
     }
 }
