@@ -16,16 +16,8 @@ public class FireBall : MonoBehaviour {
     [SerializeField] private LayerMask collisionLayers;
 
     private void Start() { 
-        if (pcScript.movementValue.x != 0) {
-            moveDir = new Vector3(Mathf.Sign(pcScript.movementValue.x), 0, pcScript.movementValue.z);
-        } else {
-            float faceingDir = pcScript.transform.localScale.x > 0 ? 1 : -1;
-            moveDir = -Vector3.forward * faceingDir;
-            if (pcScript.movementValue.z > 0) {
-                moveDir = Vector3.forward;
-            }
-        }
-        moveDir = moveDir.normalized;
+        //snapshot movedirection 
+        moveDir = pcScript.lastMoveDir;
     }
 
     private void ProjectileFallOff() {
