@@ -14,10 +14,20 @@ public class FireBall : MonoBehaviour {
     private HealthScript healthScript;
     private WallBehaviour wallScript;
     [SerializeField] private LayerMask collisionLayers;
+    private float initialHit = 10f;
+    private bool isDOT = true;
+    private float totalDotDamage = 25f;
+    private float amountOfTicks = 5f;
+    private float tickInterval = 1f;
+    
 
     private void Start() { 
         //snapshot movedirection 
         moveDir = pcScript.lastMoveDir;
+
+        if(pcScript.lastMoveDir == new Vector3(0,0,0)) {
+            moveDir = new Vector3(0,0,-1);
+        }   
     }
 
     private void ProjectileFallOff() {
@@ -32,8 +42,7 @@ public class FireBall : MonoBehaviour {
         foreach (Collider collider in detectedColliders) {
             if(collider.GetComponent<HealthScript>()) {
                 healthScript = collider.GetComponent<HealthScript>();
-                healthScript.DealDamage(fbDamage);
-                healthScript.DotDamage(25f, 5f, 1);
+                healthScript.DotDamage(initialHit, isDOT, totalDotDamage, amountOfTicks, tickInterval);
             }   else if (collider.GetComponentInParent<WallBehaviour>()) {
                 wallScript = collider.GetComponentInParent<WallBehaviour>();
                 wallScript.WallDamage(fbDamage);
@@ -54,5 +63,6 @@ public class FireBall : MonoBehaviour {
         ProjectileMovement();
         ProjectileFallOff();
         TargetChecker();
+        Debug.Log(moveDir);
     }
 }

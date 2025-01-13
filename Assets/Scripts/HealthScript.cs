@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using Unity.Mathematics;
@@ -16,8 +17,7 @@ public class HealthScript : MonoBehaviour {
     private SpriteRenderer spRend;
     private GameObject canvas;
     public int playerNum;
-    private TextMeshProUGUI healthDisplay;
-    private bool isTicking;
+    private TextMeshProUGUI healthDisplay; 
 
 
     private void Start() {
@@ -27,22 +27,20 @@ public class HealthScript : MonoBehaviour {
         canvas = GameObject.Find("Canvas");
         healthDisplay = canvas.transform.GetChild(playerNum - 1).GetComponent<TextMeshProUGUI>();  
     }
-
-    public void DealDamage(float amountOfDamage) {
-        PlayerHealth -= amountOfDamage;
-    }
     
-    public void DotDamage(float totalDamageAmount, float amountOfTicks, float tickInterval) {
-        StartCoroutine(ActivateDot(totalDamageAmount, amountOfTicks, tickInterval));
+    public void DotDamage(float initialHit, bool isDOT, float totalDotDamage, float amountOfTicks, float tickInterval) {
+        PlayerHealth -= initialHit;
+        StartCoroutine(ActivateDot(isDOT, totalDotDamage, amountOfTicks, tickInterval));
     }
 
-    private IEnumerator ActivateDot(float totalDamageAmount, float amountOfTicks, float tickInterval) {
-            float tickDamage = totalDamageAmount / amountOfTicks;
-
+    private IEnumerator ActivateDot(bool isDOT, float totalDotDamage, float amountOfTicks, float tickInterval) {
+        float tickDamage = totalDotDamage / amountOfTicks;
+            if(isDOT == true) {
                 for(int i = 0; i < amountOfTicks; i++) {
-                    yield return new WaitForSeconds(tickInterval);
-                    PlayerHealth -= tickDamage;
-                }
+                yield return new WaitForSeconds(tickInterval);
+                PlayerHealth -= tickDamage;
+            }
+        }
     }
 
 
@@ -67,6 +65,5 @@ public class HealthScript : MonoBehaviour {
     private void Update() {
         DeathCheck();
         DisplayHealth();
-        Debug.Log(isTicking);
     }
 }
