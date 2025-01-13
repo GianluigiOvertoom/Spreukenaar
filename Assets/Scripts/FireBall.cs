@@ -33,10 +33,12 @@ public class FireBall : MonoBehaviour {
             if(collider.GetComponent<HealthScript>()) {
                 healthScript = collider.GetComponent<HealthScript>();
                 healthScript.DealDamage(fbDamage);
+                healthScript.DotDamage(25f, 5f, 1);
             }   else if (collider.GetComponentInParent<WallBehaviour>()) {
                 wallScript = collider.GetComponentInParent<WallBehaviour>();
                 wallScript.WallDamage(fbDamage);
             }
+
             if(collider.gameObject != pcScript.gameObject) {
                 Destroy(gameObject);
                 return;

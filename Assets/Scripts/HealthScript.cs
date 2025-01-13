@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using Unity.Mathematics;
 using Unity.VisualScripting;
@@ -16,6 +17,7 @@ public class HealthScript : MonoBehaviour {
     private GameObject canvas;
     public int playerNum;
     private TextMeshProUGUI healthDisplay;
+    private bool isTicking;
 
 
     private void Start() {
@@ -29,6 +31,20 @@ public class HealthScript : MonoBehaviour {
     public void DealDamage(float amountOfDamage) {
         PlayerHealth -= amountOfDamage;
     }
+    
+    public void DotDamage(float totalDamageAmount, float amountOfTicks, float tickInterval) {
+        StartCoroutine(ActivateDot(totalDamageAmount, amountOfTicks, tickInterval));
+    }
+
+    private IEnumerator ActivateDot(float totalDamageAmount, float amountOfTicks, float tickInterval) {
+            float tickDamage = totalDamageAmount / amountOfTicks;
+
+                for(int i = 0; i < amountOfTicks; i++) {
+                    yield return new WaitForSeconds(tickInterval);
+                    PlayerHealth -= tickDamage;
+                }
+    }
+
 
     private void DeathCheck() {
         if(PlayerHealth <= 0) {
@@ -51,5 +67,6 @@ public class HealthScript : MonoBehaviour {
     private void Update() {
         DeathCheck();
         DisplayHealth();
+        Debug.Log(isTicking);
     }
 }

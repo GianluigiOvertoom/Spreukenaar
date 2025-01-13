@@ -35,6 +35,10 @@ public class PlayerController : MonoBehaviour {
 
         if(xzValue != Vector2.zero) {
             lastMoveDir = new Vector3(xzValue.x, 0, xzValue.y);
+        } 
+
+        if(lastMoveDir == null) {
+            lastMoveDir = new Vector3(0,-1);
         }
     }
 
