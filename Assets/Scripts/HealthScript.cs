@@ -12,7 +12,7 @@ using UnityEngine.UI;
 /// </summary>
 public class HealthScript : MonoBehaviour {
     
-    public float PlayerHealth;
+    public float playerHealth;
     private CharacterController cc;
     private SpriteRenderer spRend;
     private GameObject canvas;
@@ -21,7 +21,7 @@ public class HealthScript : MonoBehaviour {
 
 
     private void Start() {
-        PlayerHealth = 100f;
+        playerHealth = 1000f;
         cc = GetComponent<CharacterController>();
         spRend = GetComponentInChildren<SpriteRenderer>();
         canvas = GameObject.Find("Canvas");
@@ -29,7 +29,7 @@ public class HealthScript : MonoBehaviour {
     }
     
     public void DotDamage(float initialHit, bool isDOT, float totalDotDamage, float amountOfTicks, float tickInterval) {
-        PlayerHealth -= initialHit;
+        playerHealth -= initialHit;
         StartCoroutine(ActivateDot(isDOT, totalDotDamage, amountOfTicks, tickInterval));
     }
 
@@ -38,15 +38,15 @@ public class HealthScript : MonoBehaviour {
             if(isDOT == true) {
                 for(int i = 0; i < amountOfTicks; i++) {
                 yield return new WaitForSeconds(tickInterval);
-                PlayerHealth -= tickDamage;
+                playerHealth -= tickDamage;
             }
         }
     }
 
 
     private void DeathCheck() {
-        if(PlayerHealth <= 0) {
-            PlayerHealth = 0;
+        if(playerHealth <= 0) {
+            playerHealth = 0;
             //disable character controller/ (collision)
             cc.enabled = false;
             //fade out
@@ -59,7 +59,7 @@ public class HealthScript : MonoBehaviour {
     }
 
     private void DisplayHealth() {
-        healthDisplay.text = "Target " + playerNum + " : " + PlayerHealth + " HP";        
+        healthDisplay.text = "Target " + playerNum + " : " + playerHealth + " HP";        
     }
 
     private void Update() {
