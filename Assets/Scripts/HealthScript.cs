@@ -19,7 +19,6 @@ public class HealthScript : MonoBehaviour {
     public int playerNum;
     private TextMeshProUGUI healthDisplay; 
 
-
     private void Start() {
         playerHealth = 1000f;
         cc = GetComponent<CharacterController>();
@@ -43,6 +42,13 @@ public class HealthScript : MonoBehaviour {
         }
     }
 
+    public void Knockback(float knockbackMultiplier, float knockbackTime, Vector3 hitDirection) { 
+        //knockbackstrength word meegegeven en gemultiplied met 1 als de player maxhealth is dus playerhealth = playerhearlth en anders gaat ie playerhealth * knockbackmultiplier * knockbackstrenght in de cc.addforce of whatever
+        knockbackTime -= Time.deltaTime;
+        if(knockbackTime > 0) {
+            cc.Move(hitDirection * playerHealth * knockbackMultiplier * Time.deltaTime);
+        }
+    } 
 
     private void DeathCheck() {
         if(playerHealth <= 0) {
@@ -61,7 +67,7 @@ public class HealthScript : MonoBehaviour {
     private void DisplayHealth() {
         healthDisplay.text = "Target " + playerNum + " : " + playerHealth + " HP";        
     }
-
+    
     private void Update() {
         DeathCheck();
         DisplayHealth();

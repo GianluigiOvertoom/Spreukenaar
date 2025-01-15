@@ -174,5 +174,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8044b1ba0420ea42b234f84899dc10d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireBall: {fileID: 8007807846535373962, guid: e6a961a4bea11594b98051723814c791, type: 3}
-  wallPrefab: {fileID: 0}
+  SpellPrefab: {fileID: 8007807846535373962, guid: e6a961a4bea11594b98051723814c791, type: 3}
+  spreukenaarScriptableObject: {fileID: 11400000, guid: d40dd66e0fb26c14d99044016f7059b7, type: 2}

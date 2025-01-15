@@ -4,6 +4,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SpreukenScriptableObject", menuName = "ScriptableObjects/Spreuk")]
 public class SpreukenScriptableObject : ScriptableObject {
     //spreuk variables (damage / dot)
+    [field: SerializeField] public float knockbackMultiplier {get; private set;}
+    [field: SerializeField] public float knockbackTime {get; private set;}
     [field: SerializeField] public float projectileMoveSpeed {get; private set;}
     [field: SerializeField] public float enviornmentDamage {get; private set;}
     [field: SerializeField] public float initialHit {get; private set;}

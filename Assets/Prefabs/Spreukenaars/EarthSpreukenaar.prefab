@@ -87,8 +87,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8044b1ba0420ea42b234f84899dc10d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireBall: {fileID: 0}
-  wallPrefab: {fileID: 3587367112766006208, guid: d9d829dc463069047b5d06e909aba6f5, type: 3}
+  SpellPrefab: {fileID: 3587367112766006208, guid: d9d829dc463069047b5d06e909aba6f5, type: 3}
+  spreukenaarScriptableObject: {fileID: 11400000, guid: 88ab3abca04594a4db6d809505c907b8, type: 2}
 --- !u!1 &6904037473546789749
 GameObject:
   m_ObjectHideFlags: 0

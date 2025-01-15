@@ -9,15 +9,21 @@ public class ShootProjectile : MonoBehaviour {
 
     [SerializeField] private GameObject SpellPrefab;
     private PlayerController pcScript;
+    [SerializeField] private SpreukenaarScriptableObject spreukenaarScriptableObject;
 
     private void Start() {
         pcScript = GetComponent<PlayerController>();
     }
 
     private void CastSpell() {
-        //Spawn projectile, enviornment, effect...
-        GameObject projectileInstance = Instantiate(SpellPrefab, transform.position, Quaternion.identity);
-        projectileInstance.GetComponent<ProjectileBehaviour>().pcScript = GetComponent<PlayerController>();
+        if(spreukenaarScriptableObject.type == "Earth") {
+            GameObject projectileInstance = Instantiate(SpellPrefab, transform.position, quaternion.identity);
+            projectileInstance.GetComponent<WallBehaviour>().pcScript = pcScript;
+            projectileInstance.GetComponent<ProjectileBehaviour>().pcScript = pcScript;
+        } else {
+            GameObject projectileInstance = Instantiate(SpellPrefab, transform.position, Quaternion.identity);
+            projectileInstance.GetComponent<ProjectileBehaviour>().pcScript = pcScript;
+        }
     }      
 
     private void Update() {
