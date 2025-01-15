@@ -19,7 +19,7 @@ public class SpreukenaarScriptableObject : ScriptableObject {
     [field: SerializeField] public float jumpTimeMaxHeight {get; private set;}
     
     //spreuk dmg
-    public float fbMoveSpeed {get; private set;}
+    public float projectileMoveSpeed {get; private set;}
     public float enviornmentDamage {get; private set;}
     public float initialHit {get; private set;}
     public bool isDOT {get; private set;}
@@ -28,7 +28,7 @@ public class SpreukenaarScriptableObject : ScriptableObject {
     public float tickInterval {get; private set;}
 
     private void OnEnable() {
-        fbMoveSpeed = spreuken.fbMoveSpeed;
+        projectileMoveSpeed = spreuken.projectileMoveSpeed;
         enviornmentDamage = spreuken.enviornmentDamage;
         initialHit = spreuken.initialHit;
         isDOT = spreuken.isDOT;

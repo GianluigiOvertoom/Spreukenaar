@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 82a6074ed8eb0ca40a02a57c27dc868e
+guid: ef937a693f495e84d9419d78d5d279d7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6202147327875460930
-    second: Placeholder_FireBall_0
+      213: -6831522247977807097
+    second: Placeholder_Tornado_0
   - first:
-      213: 4202527534403811679
-    second: Placeholder_FireBall_1
+      213: -4206304444652453481
+    second: Placeholder_Tornado_1
   - first:
-      213: 8225290074949201418
-    second: Placeholder_FireBall_2
+      213: -355246176225008484
+    second: Placeholder_Tornado_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -43,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -81,7 +81,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -106,89 +106,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Placeholder_FireBall_0
+      name: Placeholder_Tornado_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1156
-        height: 808
+        x: 121
+        y: 72
+        width: 269
+        height: 339
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 24fa7a26224721650800000000000000
-      internalID: 6202147327875460930
+      spriteID: 703da1ed5be8131a0800000000000000
+      internalID: -6831522247977807097
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Placeholder_FireBall_1
+      name: Placeholder_Tornado_1
       rect:
         serializedVersion: 2
-        x: 268
-        y: 1
-        width: 841
-        height: 805
+        x: 258
+        y: 393
+        width: 112
+        height: 34
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f59ffeec680625a30800000000000000
-      internalID: 4202527534403811679
+      spriteID: 791085fb46430a5c0800000000000000
+      internalID: -4206304444652453481
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Placeholder_FireBall_2
+      name: Placeholder_Tornado_2
       rect:
         serializedVersion: 2
-        x: 951
-        y: 422
-        width: 205
-        height: 332
+        x: 110
+        y: 250
+        width: 34
+        height: 74
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a0ea4e36eb9162270800000000000000
-      internalID: 8225290074949201418
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Placeholder_FireBall_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1156
-        height: 808
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 55be2d63581acd14fb1909a421725872
-      internalID: -1690818003
+      spriteID: c94ea422c79e11bf0800000000000000
+      internalID: -355246176225008484
       vertices: []
       indices: 
       edges: []
@@ -197,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 0796618fe356ea34bb1aea42f372b36b
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -207,10 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Placeholder_FireBall_0: 6202147327875460930
-      Placeholder_FireBall_1: 4202527534403811679
-      Placeholder_FireBall_2: 8225290074949201418
-      Placeholder_FireBall_3: -1690818003
+      Placeholder_Tornado_0: -6831522247977807097
+      Placeholder_Tornado_1: -4206304444652453481
+      Placeholder_Tornado_2: -355246176225008484
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

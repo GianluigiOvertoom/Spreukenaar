@@ -1,33 +1,22 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
-/// <summary>
-/// Fireball Behaviour
-/// </summary>
-public class FireBall : MonoBehaviour {
-
-    private float fbMoveSpeed;
+public class ProjectileBehaviour : MonoBehaviour {
+    private float projectileMoveSpeed;
     private float enviornmentDamage;
-    private Vector3 moveDir;
-    public PlayerController pcScript {private get; set;}
-    private HealthScript healthScript;
-    private WallBehaviour wallScript;
-    [SerializeField] private LayerMask collisionLayers;
     private float initialHit;
     private bool isDOT;
     private float totalDotDamage;
     private float amountOfTicks;
     private float tickInterval;
-    [field: SerializeField] public SpreukenaarScriptableObject spreukenaarScriptableObject; //{get; private set;}
-
-    private void Awake() {
-        
-    }
+    private Vector3 moveDir;
+    public PlayerController pcScript {private get; set;}
+    private HealthScript healthScript;
+    private WallBehaviour wallScript;
+    [SerializeField] private LayerMask collisionLayers;    
+    [field: SerializeField] public SpreukenaarScriptableObject spreukenaarScriptableObject {get; private set;}
 
     private void Start() { 
-        //snapshot movedirection 
-        fbMoveSpeed = spreukenaarScriptableObject.fbMoveSpeed;
+        projectileMoveSpeed = spreukenaarScriptableObject.projectileMoveSpeed;
         enviornmentDamage = spreukenaarScriptableObject.enviornmentDamage;
         initialHit = spreukenaarScriptableObject.initialHit;
         isDOT = spreukenaarScriptableObject.isDOT;
@@ -36,6 +25,7 @@ public class FireBall : MonoBehaviour {
         tickInterval = spreukenaarScriptableObject.tickInterval;
         moveDir = pcScript.lastMoveDir;
 
+        //snapshot movedirection
         if(pcScript.lastMoveDir == new Vector3(0,0,0)) {
             moveDir = new Vector3(0,0,-1);
         }   
@@ -67,14 +57,12 @@ public class FireBall : MonoBehaviour {
     }
 
     private void ProjectileMovement() {
-        transform.position += moveDir * fbMoveSpeed * Time.deltaTime;
+        transform.position += moveDir * projectileMoveSpeed * Time.deltaTime;
     }
 
     private void Update() {
         ProjectileMovement();
         ProjectileFallOff();
         TargetChecker();
-
-        Debug.Log(fbMoveSpeed + " = movespeed");
     }
 }
