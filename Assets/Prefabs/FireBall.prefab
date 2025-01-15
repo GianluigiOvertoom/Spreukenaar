@@ -136,3 +136,4 @@ MonoBehaviour:
   collisionLayers:
     serializedVersion: 2
     m_Bits: 805306376
+  spreukenaarScriptableObject: {fileID: 11400000, guid: d40dd66e0fb26c14d99044016f7059b7, type: 2}

@@ -7,22 +7,33 @@ using UnityEngine.Rendering.Universal;
 /// </summary>
 public class FireBall : MonoBehaviour {
 
-    private float fbMoveSpeed = 15f;
-    private float fbDamage = 10f;
+    private float fbMoveSpeed;
+    private float enviornmentDamage;
     private Vector3 moveDir;
-    public PlayerController pcScript;
+    public PlayerController pcScript {private get; set;}
     private HealthScript healthScript;
     private WallBehaviour wallScript;
     [SerializeField] private LayerMask collisionLayers;
-    private float initialHit = 10f;
-    private bool isDOT = true;
-    private float totalDotDamage = 25f;
-    private float amountOfTicks = 5f;
-    private float tickInterval = 1f;
-    
+    private float initialHit;
+    private bool isDOT;
+    private float totalDotDamage;
+    private float amountOfTicks;
+    private float tickInterval;
+    [field: SerializeField] public SpreukenaarScriptableObject spreukenaarScriptableObject; //{get; private set;}
+
+    private void Awake() {
+        
+    }
 
     private void Start() { 
         //snapshot movedirection 
+        fbMoveSpeed = spreukenaarScriptableObject.fbMoveSpeed;
+        enviornmentDamage = spreukenaarScriptableObject.enviornmentDamage;
+        initialHit = spreukenaarScriptableObject.initialHit;
+        isDOT = spreukenaarScriptableObject.isDOT;
+        totalDotDamage = spreukenaarScriptableObject.totalDotDamage;
+        amountOfTicks = spreukenaarScriptableObject.amountOfTicks;
+        tickInterval = spreukenaarScriptableObject.tickInterval;
         moveDir = pcScript.lastMoveDir;
 
         if(pcScript.lastMoveDir == new Vector3(0,0,0)) {
@@ -45,7 +56,7 @@ public class FireBall : MonoBehaviour {
                 healthScript.DotDamage(initialHit, isDOT, totalDotDamage, amountOfTicks, tickInterval);
             }   else if (collider.GetComponentInParent<WallBehaviour>()) {
                 wallScript = collider.GetComponentInParent<WallBehaviour>();
-                wallScript.WallDamage(fbDamage);
+                wallScript.WallDamage(enviornmentDamage);
             }
 
             if(collider.gameObject != pcScript.gameObject) {
@@ -63,6 +74,7 @@ public class FireBall : MonoBehaviour {
         ProjectileMovement();
         ProjectileFallOff();
         TargetChecker();
-        Debug.Log(moveDir);
+
+        Debug.Log(fbMoveSpeed + " = movespeed");
     }
 }

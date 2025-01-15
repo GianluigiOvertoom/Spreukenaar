@@ -158,5 +158,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275995ed6c3228c4c92b2ed164804d68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerHealth: 0
+  playerHealth: 0
   playerNum: 0

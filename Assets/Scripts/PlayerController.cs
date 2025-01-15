@@ -5,10 +5,10 @@ using UnityEngine;
 /// </summary>
 public class PlayerController : MonoBehaviour {
 
-    private float moveSpeed = 5f;
-    private float jumpHeight = 5;
+    public float moveSpeed {private get; set;}
+    public float jumpHeight {private get; set;}
     //time it takes to reach max height (or 0 velocity)
-    private float jumpTimeMaxHeight = 0.3f;
+    public float jumpTimeMaxHeight {private get; set;}
     private float gravity;
     private float jumpVelocity;
     private Vector3 startPos;
@@ -16,16 +16,23 @@ public class PlayerController : MonoBehaviour {
     public Vector3 movementValue;
     private Vector2 xzValue;
     private float jumpValue;
-    public CharacterController cc;
+    public CharacterController cc {get; private set;}
     public Vector3 lastMoveDir;
+    [field: SerializeField] public SpreukenaarScriptableObject spreukenaarScriptableObject; //{get; private set;}
 
+
+    private void Awake() {
+        moveSpeed = spreukenaarScriptableObject.moveSpeed;
+        jumpHeight = spreukenaarScriptableObject.jumpHeight;
+        jumpTimeMaxHeight = spreukenaarScriptableObject.jumpTimeMaxHeight;
+    }
 
     private void Start() {
         cc = GetComponent<CharacterController>();
 
         startPos = gameObject.transform.position;
         gravity = -(2 * jumpHeight) / Mathf.Pow (jumpTimeMaxHeight, 2);
-        jumpVelocity = Mathf.Abs(gravity) * jumpTimeMaxHeight;
+        jumpVelocity = Mathf.Abs(gravity) * jumpTimeMaxHeight;        
     }
 
     private void Walk() {
