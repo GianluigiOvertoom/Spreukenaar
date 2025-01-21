@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438e53eaa4041f544b9688a5f40d9df0, type: 3}
+  m_Name: VuurSpreukenaar
+  m_EditorClassIdentifier: 
+  spreuken: {fileID: 11400000, guid: 4f41bc85d07e2914a89e93e7ab80af8a, type: 2}
+  <type>k__BackingField: Fire
+  <playerHealth>k__BackingField: 1000
+  <moveSpeed>k__BackingField: 6
+  <jumpHeight>k__BackingField: 5
+  <jumpTimeMaxHeight>k__BackingField: 0.3

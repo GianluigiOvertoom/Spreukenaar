@@ -73,4 +73,6 @@ crashlytics-build.properties
 
 
 # Unity generated ProjectSettings 
-*.asset
+ProjectSettings/EntitiesClientSettings.asset
+ProjectSettings/NetCodeServerSettings.asset
+ProjectSettings/NetCodeClientAndServerSettings.asset
