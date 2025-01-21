@@ -18,9 +18,11 @@ public class HealthScript : MonoBehaviour {
     private GameObject canvas;
     public int playerNum;
     private TextMeshProUGUI healthDisplay; 
+    [field: SerializeField] public SpreukenaarScriptableObject spreukenaarScriptableObject {get; private set;}
+
 
     private void Start() {
-        playerHealth = 1000f;
+        playerHealth = spreukenaarScriptableObject.playerHealth;
         cc = GetComponent<CharacterController>();
         spRend = GetComponentInChildren<SpriteRenderer>();
         canvas = GameObject.Find("Canvas");

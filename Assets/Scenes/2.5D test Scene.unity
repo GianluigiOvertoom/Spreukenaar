@@ -704,6 +704,7 @@ MonoBehaviour:
   movementValue: {x: 0, y: 0, z: 0}
   lastMoveDir: {x: 0, y: 0, z: 0}
   spreukenaarScriptableObject: {fileID: 0}
+  isDebug: 0
 --- !u!143 &571825936
 CharacterController:
   m_ObjectHideFlags: 0

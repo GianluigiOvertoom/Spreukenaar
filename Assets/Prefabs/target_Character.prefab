@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 3488121254552455020}
   - component: {fileID: 5712047191387236096}
   - component: {fileID: 6098857113162874468}
+  - component: {fileID: 2216015166877796301}
   m_Layer: 3
   m_Name: target_Character
   m_TagString: Player
@@ -160,3 +161,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: 0
   playerNum: 0
+  <spreukenaarScriptableObject>k__BackingField: {fileID: 11400000, guid: 88ab3abca04594a4db6d809505c907b8, type: 2}
+--- !u!114 &2216015166877796301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8925134958109063473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f15b3be56a62aae4bbb04a56d7d14dbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementValue: {x: 0, y: 0, z: 0}
+  lastMoveDir: {x: 0, y: 0, z: 0}
+  spreukenaarScriptableObject: {fileID: 11400000, guid: 88ab3abca04594a4db6d809505c907b8, type: 2}
+  isDebug: 1

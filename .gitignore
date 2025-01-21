@@ -72,7 +72,7 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 
-# Unity generated ProjectSettings 
+# Unity generated ProjectSettings (one by one so it doesnt exclude the scriptable objects)
 ProjectSettings/EntitiesClientSettings.asset
 ProjectSettings/NetCodeServerSettings.asset
 ProjectSettings/NetCodeClientAndServerSettings.asset

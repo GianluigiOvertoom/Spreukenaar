@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour {
     public CharacterController cc {get; private set;}
     public Vector3 lastMoveDir;
     [field: SerializeField] public SpreukenaarScriptableObject spreukenaarScriptableObject; //{get; private set;}
+    public bool isDebug;
+    private Vector2 knockbackValue;
+    private float friction = 5f;
 
 
     private void Awake() {
@@ -37,6 +40,10 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Walk() {
+        if(isDebug) {
+            return;
+        }
+
         xzValue.x = Input.GetAxisRaw("Horizontal");
         xzValue.y = Input.GetAxisRaw("Vertical");
         xzValue = new Vector2(xzValue.x, xzValue.y).normalized;
@@ -51,6 +58,10 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Run() {
+        if(isDebug) {
+            return;
+        }
+
         if(Input.GetKey(KeyCode.LeftShift) == true) {
             moveSpeed = 8f;
         } else {
@@ -59,9 +70,19 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Jump() {
+        if(isDebug) {
+            return;
+        }
+        
         if(cc.isGrounded && Input.GetKeyDown(KeyCode.Space)) {
             jumpValue = jumpVelocity;
         }
+    }
+
+    public void Knockback(Vector2 horizontalValue) {
+        
+        // knockbackJump = jumpVelocity;
+        knockbackValue = horizontalValue;
     }
 
     private void ApplyGravity() {
@@ -89,8 +110,17 @@ public class PlayerController : MonoBehaviour {
         Run();
 
         //apply movement to cc
-        movementValue = new Vector3(xzValue.x * moveSpeed, jumpValue, xzValue.y * moveSpeed);
-        cc.Move(movementValue * Time.deltaTime);
+        movementValue = new Vector3(xzValue.x * moveSpeed + knockbackValue.x, jumpValue, xzValue.y * moveSpeed + knockbackValue.y);
+        if(cc != null && cc.enabled) {
+            cc.Move(movementValue * Time.deltaTime);
+        } else {
+            Debug.Log("Character controller is disabled");
+            return;
+        }
+        
+        if(knockbackValue != Vector2.zero) {
+            knockbackValue = Vector2.Lerp(knockbackValue, Vector2.zero, friction * Time.deltaTime);
+        }
         
         ApplyGravity();
         RespawnCharacter();

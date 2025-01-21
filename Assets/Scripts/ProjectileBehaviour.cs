@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class ProjectileBehaviour : MonoBehaviour {
     private float knockbackMultiplier;
-    private float knockbackTime;
     private float projectileMoveSpeed;
     private float enviornmentDamage;
     private float initialHit;
@@ -19,7 +18,6 @@ public class ProjectileBehaviour : MonoBehaviour {
 
     private void Start() { 
         knockbackMultiplier = spreukenaarScriptableObject.knockbackMultiplier;
-        knockbackTime = spreukenaarScriptableObject.knockbackTime;
         projectileMoveSpeed = spreukenaarScriptableObject.projectileMoveSpeed;
         enviornmentDamage = spreukenaarScriptableObject.enviornmentDamage;
         initialHit = spreukenaarScriptableObject.initialHit;
@@ -47,7 +45,7 @@ public class ProjectileBehaviour : MonoBehaviour {
             if(collider.GetComponent<HealthScript>()) {
                 healthScript = collider.GetComponent<HealthScript>();
                 healthScript.DotDamage(initialHit, isDOT, totalDotDamage, amountOfTicks, tickInterval);
-                healthScript.Knockback(knockbackMultiplier, knockbackTime , moveDir);
+                collider.GetComponent<PlayerController>().Knockback(new Vector2(moveDir.x * knockbackMultiplier, moveDir.z * knockbackMultiplier));
             }   else if (collider.GetComponentInParent<WallBehaviour>()) {
                 wallScript = collider.GetComponentInParent<WallBehaviour>();
                 wallScript.WallDamage(enviornmentDamage);
