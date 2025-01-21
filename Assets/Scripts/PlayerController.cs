@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour {
     public bool isDebug;
     private Vector2 knockbackValue;
     private float friction = 5f;
+    private HealthScript healthScript;
+    private float sprintSpeed;
 
 
     private void Awake() {
@@ -33,10 +35,13 @@ public class PlayerController : MonoBehaviour {
 
     private void Start() {
         cc = GetComponent<CharacterController>();
+        healthScript = GetComponent<HealthScript>();
 
         startPos = gameObject.transform.position;
         gravity = -(2 * jumpHeight) / Mathf.Pow (jumpTimeMaxHeight, 2);
-        jumpVelocity = Mathf.Abs(gravity) * jumpTimeMaxHeight;        
+        jumpVelocity = Mathf.Abs(gravity) * jumpTimeMaxHeight;     
+
+        sprintSpeed = moveSpeed * 1.25f;   
     }
 
     private void Walk() {
@@ -63,9 +68,9 @@ public class PlayerController : MonoBehaviour {
         }
 
         if(Input.GetKey(KeyCode.LeftShift) == true) {
-            moveSpeed = 8f;
+            moveSpeed = sprintSpeed;
         } else {
-            moveSpeed = 5f;
+            moveSpeed = spreukenaarScriptableObject.moveSpeed;
         }
     }
 
@@ -80,18 +85,17 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void Knockback(Vector2 horizontalValue) {
-        
-        // knockbackJump = jumpVelocity;
-        knockbackValue = horizontalValue;
+        //strength scaling with health
+        float knockbackPower = healthScript.playerHealth * 0.05f;
+        Debug.Log(knockbackPower);
+        knockbackValue = horizontalValue * knockbackPower;
     }
 
     private void ApplyGravity() {
         jumpValue += gravity * Time.deltaTime;
 
         //limiting gravity strength
-        if(jumpValue < -20) {
-            jumpValue = -20;
-        }
+        jumpValue = Mathf.Max(jumpValue, -20);
     }
 
     //respawn character when falling for now, later on, kill character instead

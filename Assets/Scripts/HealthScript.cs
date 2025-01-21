@@ -4,6 +4,7 @@ using TMPro;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.U2D.IK;
 using UnityEngine.UI;
 
@@ -12,7 +13,7 @@ using UnityEngine.UI;
 /// </summary>
 public class HealthScript : MonoBehaviour {
     
-    public float playerHealth;
+    public float playerHealth {private set; get;}
     private CharacterController cc;
     private SpriteRenderer spRend;
     private GameObject canvas;
@@ -22,7 +23,7 @@ public class HealthScript : MonoBehaviour {
 
 
     private void Start() {
-        playerHealth = spreukenaarScriptableObject.playerHealth;
+        playerHealth = 0;
         cc = GetComponent<CharacterController>();
         spRend = GetComponentInChildren<SpriteRenderer>();
         canvas = GameObject.Find("Canvas");
@@ -30,7 +31,7 @@ public class HealthScript : MonoBehaviour {
     }
     
     public void DotDamage(float initialHit, bool isDOT, float totalDotDamage, float amountOfTicks, float tickInterval) {
-        playerHealth -= initialHit;
+        playerHealth += initialHit;
         StartCoroutine(ActivateDot(isDOT, totalDotDamage, amountOfTicks, tickInterval));
     }
 
@@ -39,39 +40,31 @@ public class HealthScript : MonoBehaviour {
             if(isDOT == true) {
                 for(int i = 0; i < amountOfTicks; i++) {
                 yield return new WaitForSeconds(tickInterval);
-                playerHealth -= tickDamage;
+                playerHealth += tickDamage;
             }
         }
     }
 
-    public void Knockback(float knockbackMultiplier, float knockbackTime, Vector3 hitDirection) { 
-        //knockbackstrength word meegegeven en gemultiplied met 1 als de player maxhealth is dus playerhealth = playerhearlth en anders gaat ie playerhealth * knockbackmultiplier * knockbackstrenght in de cc.addforce of whatever
-        knockbackTime -= Time.deltaTime;
-        if(knockbackTime > 0) {
-            cc.Move(hitDirection * playerHealth * knockbackMultiplier * Time.deltaTime);
-        }
-    } 
-
-    private void DeathCheck() {
-        if(playerHealth <= 0) {
-            playerHealth = 0;
-            //disable character controller/ (collision)
-            cc.enabled = false;
-            //fade out
-            spRend.color = spRend.color - new Color(0,0,0,0.5f) * Time.deltaTime;
-            if(spRend.color.a <= 0) {
-                GetComponent<HealthScript>().enabled = false;
-                gameObject.SetActive(false);
-            }
-        }
-    }
+    // private void DeathCheck() {
+    //     if(playerHealth <= 0) {
+    //         playerHealth = 0;
+    //         //disable character controller/ (collision)
+    //         cc.enabled = false;
+    //         //fade out
+    //         spRend.color = spRend.color - new Color(0,0,0,0.5f) * Time.deltaTime;
+    //         if(spRend.color.a <= 0) {
+    //             GetComponent<HealthScript>().enabled = false;
+    //             gameObject.SetActive(false);
+    //         }
+    //     }
+    // }
 
     private void DisplayHealth() {
         healthDisplay.text = "Target " + playerNum + " : " + playerHealth + " HP";        
     }
     
     private void Update() {
-        DeathCheck();
-        DisplayHealth();
+        // DeathCheck();
+        DisplayHealth(); 
     }
 }

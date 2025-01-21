@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cb6de3549b28db40bcbdb867c3c0053, type: 3}
   m_Name: VuurSpreuk
   m_EditorClassIdentifier: 
-  <knockbackMultiplier>k__BackingField: 5
+  <knockbackMultiplier>k__BackingField: 1.5
   <knockbackTime>k__BackingField: 0.3
   <projectileMoveSpeed>k__BackingField: 8
   <enviornmentDamage>k__BackingField: 10
   <initialHit>k__BackingField: 10
   <isDOT>k__BackingField: 1
-  <totalDotDamage>k__BackingField: 50
+  <totalDotDamage>k__BackingField: 5
   <amountOfTicks>k__BackingField: 5
   <tickInterval>k__BackingField: 0.5
