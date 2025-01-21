@@ -15,6 +15,7 @@ public class SpreukenaarScriptableObject : ScriptableObject {
     //player stats
     [field: SerializeField] public float playerHealth {get; private set;}
     [field: SerializeField] public float moveSpeed {get; private set;}
+    [field: SerializeField] public int maxJumpAmount {get; private set;} 
     [field: SerializeField] public float jumpHeight {get; private set;} 
     [field: SerializeField] public float jumpTimeMaxHeight {get; private set;}
     

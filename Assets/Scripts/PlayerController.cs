@@ -25,6 +25,9 @@ public class PlayerController : MonoBehaviour {
     private float friction = 5f;
     private HealthScript healthScript;
     private float sprintSpeed;
+    //amount of jumps pulled from scriptable object
+    private int maxJumpAmount;
+    private int resetJumps;
 
 
     private void Awake() {
@@ -42,6 +45,8 @@ public class PlayerController : MonoBehaviour {
         jumpVelocity = Mathf.Abs(gravity) * jumpTimeMaxHeight;     
 
         sprintSpeed = moveSpeed * 1.25f;   
+        maxJumpAmount = spreukenaarScriptableObject.maxJumpAmount;
+        resetJumps = maxJumpAmount;
     }
 
     private void Walk() {
@@ -74,14 +79,25 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    private void Jump() {
+    private void MultiJump() {
         if(isDebug) {
             return;
         }
-        
-        if(cc.isGrounded && Input.GetKeyDown(KeyCode.Space)) {
-            jumpValue = jumpVelocity;
+
+        if(maxJumpAmount > 1 && Input.GetKeyDown(KeyCode.Space)) {
+            Jump();
+        } else if(maxJumpAmount >= 1 && Input.GetKeyDown(KeyCode.Space) && cc.isGrounded) {
+            Jump();
         }
+
+        if(maxJumpAmount <= 0 || cc.isGrounded) {
+            maxJumpAmount = resetJumps;
+        }
+    }
+
+    private void Jump() {
+        maxJumpAmount -= 1;
+        jumpValue = jumpVelocity;
     }
 
     public void Knockback(Vector2 horizontalValue) {
@@ -106,7 +122,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Update() {
-        Jump();
+        MultiJump();
     }
     
     private void FixedUpdate() {

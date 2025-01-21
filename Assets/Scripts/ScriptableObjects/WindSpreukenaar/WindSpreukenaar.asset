@@ -16,5 +16,6 @@ MonoBehaviour:
   <type>k__BackingField: Wind
   <playerHealth>k__BackingField: 0
   <moveSpeed>k__BackingField: 6
+  <maxJumpAmount>k__BackingField: 3
   <jumpHeight>k__BackingField: 8
   <jumpTimeMaxHeight>k__BackingField: 0.3
