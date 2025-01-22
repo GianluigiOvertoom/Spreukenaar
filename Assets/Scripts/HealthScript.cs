@@ -20,14 +20,21 @@ public class HealthScript : MonoBehaviour {
     public int playerNum;
     private TextMeshProUGUI healthDisplay; 
     [field: SerializeField] public SpreukenaarScriptableObject spreukenaarScriptableObject {get; private set;}
+    public bool isDebug;
 
 
     private void Start() {
+        if(isDebug) {
+            playerNum = -3;
+        }
         playerHealth = 0;
         cc = GetComponent<CharacterController>();
         spRend = GetComponentInChildren<SpriteRenderer>();
         canvas = GameObject.Find("Canvas");
-        healthDisplay = canvas.transform.GetChild(playerNum - 1).GetComponent<TextMeshProUGUI>();  
+
+        if(!isDebug) {
+            healthDisplay = canvas.transform.GetChild(playerNum - 1).GetComponent<TextMeshProUGUI>();  
+        }
     }
     
     public void DotDamage(float initialHit, bool isDOT, float totalDotDamage, float amountOfTicks, float tickInterval) {
@@ -60,7 +67,9 @@ public class HealthScript : MonoBehaviour {
     // }
 
     private void DisplayHealth() {
-        healthDisplay.text = "Target " + playerNum + " : " + playerHealth + " HP";        
+        if(playerNum > -1) {
+            healthDisplay.text = "Target " + playerNum + " : " + playerHealth + " %";        
+        }
     }
     
     private void Update() {

@@ -119,37 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &40774233
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 40774235}
-  m_Layer: 0
-  m_Name: ScriptableObjects (test)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &40774235
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 40774233}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.4708456, y: 0.14257436, z: 4.841826}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &45525207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -158,6 +127,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7529637343161613495, guid: 3064d354b694aee43923ec96f1be5267, type: 3}
+      propertyPath: isDebug
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7529637343161613495, guid: 3064d354b694aee43923ec96f1be5267, type: 3}
+      propertyPath: playerNum
+      value: -3
+      objectReference: {fileID: 0}
     - target: {fileID: 6882098803254331762, guid: 3064d354b694aee43923ec96f1be5267, type: 3}
       propertyPath: m_Name
       value: FireSpreukenaar
@@ -204,6 +181,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7298064403828353744, guid: 3064d354b694aee43923ec96f1be5267, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7426124615425165541, guid: 3064d354b694aee43923ec96f1be5267, type: 3}
+      propertyPath: isDebug
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -768,6 +749,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5433770714567740280, guid: 44e17190169eeec4e8cca53111882451, type: 3}
+      propertyPath: isDebug
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2818979146563144215, guid: 44e17190169eeec4e8cca53111882451, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -814,6 +799,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6000808311013980310, guid: 44e17190169eeec4e8cca53111882451, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634379645225858965, guid: 44e17190169eeec4e8cca53111882451, type: 3}
+      propertyPath: isDebug
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1059,8 +1048,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
+  near clip plane: -10
+  far clip plane: 100
   field of view: 60
   orthographic: 1
   orthographic size: 7.5
@@ -1123,7 +1112,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca298faa6ffbee48bfa8a2da072cd88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPf: {fileID: 8925134958109063473, guid: 37af71cc32cce8a47abb89f26118d497, type: 3}
+  vuurSpreukenaar: {fileID: 6882098803254331762, guid: 3064d354b694aee43923ec96f1be5267, type: 3}
+  waterSpreukenaar: {fileID: 6000808311013980310, guid: 44e17190169eeec4e8cca53111882451, type: 3}
+  earthSpreukenaar: {fileID: 287669803855170462, guid: 9fa1b331ae7dc1640b4a715d6aae5b46, type: 3}
+  windSpreukenaar: {fileID: 287669803855170462, guid: 648d1d017f0067a4dbf10f0803db44e8, type: 3}
 --- !u!4 &1062655578
 Transform:
   m_ObjectHideFlags: 0
@@ -1192,12 +1184,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2295026475945190108, guid: 648d1d017f0067a4dbf10f0803db44e8, type: 3}
+      propertyPath: isDebug
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 287669803855170462, guid: 648d1d017f0067a4dbf10f0803db44e8, type: 3}
       propertyPath: m_Name
       value: WindSpreukenaar
       objectReference: {fileID: 0}
     - target: {fileID: 287669803855170462, guid: 648d1d017f0067a4dbf10f0803db44e8, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 358986197698878722, guid: 648d1d017f0067a4dbf10f0803db44e8, type: 3}
+      propertyPath: isDebug
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6849401498177204081, guid: 648d1d017f0067a4dbf10f0803db44e8, type: 3}
@@ -1452,6 +1452,14 @@ PrefabInstance:
     - target: {fileID: 287669803855170462, guid: 9fa1b331ae7dc1640b4a715d6aae5b46, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 358986197698878722, guid: 9fa1b331ae7dc1640b4a715d6aae5b46, type: 3}
+      propertyPath: isDebug
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3430283396659522651, guid: 9fa1b331ae7dc1640b4a715d6aae5b46, type: 3}
+      propertyPath: isDebug
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6849401498177204081, guid: 9fa1b331ae7dc1640b4a715d6aae5b46, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1818,7 +1826,6 @@ SceneRoots:
   - {fileID: 545434864}
   - {fileID: 1062655578}
   - {fileID: 1183417613}
-  - {fileID: 40774235}
   - {fileID: 1459894320}
   - {fileID: 45525207}
   - {fileID: 647734243}

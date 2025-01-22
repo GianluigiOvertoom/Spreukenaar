@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cb6de3549b28db40bcbdb867c3c0053, type: 3}
   m_Name: WindSpreuk
   m_EditorClassIdentifier: 
-  <knockbackMultiplier>k__BackingField: 10
+  <knockbackMultiplier>k__BackingField: 3
   <knockbackTime>k__BackingField: 0
   <projectileMoveSpeed>k__BackingField: 8
   <enviornmentDamage>k__BackingField: 0

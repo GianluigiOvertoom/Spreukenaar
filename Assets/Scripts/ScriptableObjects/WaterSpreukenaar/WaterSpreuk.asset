@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cb6de3549b28db40bcbdb867c3c0053, type: 3}
   m_Name: WaterSpreuk
   m_EditorClassIdentifier: 
-  <knockbackMultiplier>k__BackingField: 15
+  <knockbackMultiplier>k__BackingField: 2
+  <knockbackTime>k__BackingField: 0
   <projectileMoveSpeed>k__BackingField: 8
   <enviornmentDamage>k__BackingField: 5
-  <initialHit>k__BackingField: 10
+  <initialHit>k__BackingField: 15
   <isDOT>k__BackingField: 0
   <totalDotDamage>k__BackingField: 0
   <amountOfTicks>k__BackingField: 0

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2818979146563144215}
   - component: {fileID: 5635969067747085017}
+  - component: {fileID: -5433770714567740280}
   - component: {fileID: 8634379645225858965}
   - component: {fileID: 2351967870768314846}
   m_Layer: 3
@@ -60,6 +61,20 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-5433770714567740280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6000808311013980310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 275995ed6c3228c4c92b2ed164804d68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNum: 0
+  <spreukenaarScriptableObject>k__BackingField: {fileID: 11400000, guid: 2f1916ad361891e42aff790664b4f16c, type: 2}
 --- !u!114 &8634379645225858965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,7 +90,7 @@ MonoBehaviour:
   movementValue: {x: 0, y: 0, z: 0}
   lastMoveDir: {x: 0, y: 0, z: 0}
   spreukenaarScriptableObject: {fileID: 11400000, guid: 2f1916ad361891e42aff790664b4f16c, type: 2}
-  isDebug: 0
+  isDebug: 1
 --- !u!114 &2351967870768314846
 MonoBehaviour:
   m_ObjectHideFlags: 0

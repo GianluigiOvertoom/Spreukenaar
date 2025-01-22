@@ -19,3 +19,4 @@ MonoBehaviour:
   <maxJumpAmount>k__BackingField: 3
   <jumpHeight>k__BackingField: 8
   <jumpTimeMaxHeight>k__BackingField: 0.3
+  <knockbackJump>k__BackingField: 10

@@ -1,2 +1,15 @@
 fileFormatVersion: 2
 guid: 9ca298faa6ffbee48bfa8a2da072cd88
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - vuurSpreukenaar: {fileID: 6882098803254331762, guid: 3064d354b694aee43923ec96f1be5267, type: 3}
+  - waterSpreukenaar: {fileID: 6000808311013980310, guid: 44e17190169eeec4e8cca53111882451, type: 3}
+  - earthSpreukenaar: {fileID: 287669803855170462, guid: 9fa1b331ae7dc1640b4a715d6aae5b46, type: 3}
+  - windSpreukenaar: {fileID: 287669803855170462, guid: 648d1d017f0067a4dbf10f0803db44e8, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class ProjectileBehaviour : MonoBehaviour {
@@ -42,6 +43,10 @@ public class ProjectileBehaviour : MonoBehaviour {
         //check for nearby colliders
         Collider[] detectedColliders = Physics.OverlapSphere(transform.position, 0.95f, collisionLayers);
         foreach (Collider collider in detectedColliders) {
+            if(collider.gameObject == pcScript.gameObject) {
+                continue;
+            }
+
             if(collider.GetComponent<HealthScript>()) {
                 healthScript = collider.GetComponent<HealthScript>();
                 healthScript.DotDamage(initialHit, isDOT, totalDotDamage, amountOfTicks, tickInterval);

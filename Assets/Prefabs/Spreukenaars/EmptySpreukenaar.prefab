@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 431717529219815380}
   - component: {fileID: 358986197698878722}
   - component: {fileID: 1345588220635955885}
+  - component: {fileID: -2305209503793365230}
   m_Layer: 3
   m_Name: EmptySpreukenaar
   m_TagString: Player
@@ -75,6 +76,7 @@ MonoBehaviour:
   movementValue: {x: 0, y: 0, z: 0}
   lastMoveDir: {x: 0, y: 0, z: 0}
   spreukenaarScriptableObject: {fileID: 0}
+  isDebug: 0
 --- !u!114 &1345588220635955885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,8 +89,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8044b1ba0420ea42b234f84899dc10d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireBall: {fileID: 0}
-  wallPrefab: {fileID: 0}
+  SpellPrefab: {fileID: 0}
+  spreukenaarScriptableObject: {fileID: 0}
+--- !u!114 &-2305209503793365230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287669803855170462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 275995ed6c3228c4c92b2ed164804d68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNum: 0
+  <spreukenaarScriptableObject>k__BackingField: {fileID: 0}
 --- !u!1 &6904037473546789749
 GameObject:
   m_ObjectHideFlags: 0

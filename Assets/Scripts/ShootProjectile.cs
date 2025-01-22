@@ -27,7 +27,7 @@ public class ShootProjectile : MonoBehaviour {
     }      
 
     private void Update() {
-        if(Input.GetKeyDown(KeyCode.F)) {
+        if(Input.GetKeyDown(KeyCode.F) && !pcScript.isDebug) {
             CastSpell();
         }
     }

@@ -1,27 +1,35 @@
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlayerSpawnScript : MonoBehaviour {
     
-    [SerializeField] private GameObject playerPf;
+    [SerializeField] private GameObject vuurSpreukenaar;
+    [SerializeField] private GameObject waterSpreukenaar;
+    [SerializeField] private GameObject earthSpreukenaar;
+    [SerializeField] private GameObject windSpreukenaar;
 
     private void Start() {
-        Vector3 spawnLocation1 = new Vector3(-6, 1.25f, 4);
-        Vector3 spawnLocation2 = new Vector3(-3, 1.25f, 4);
-        Vector3 spawnLocation3 = new Vector3(3, 1.25f, 4);
-        Vector3 spawnLocation4 = new Vector3(6, 1.25f, 4);
-        
-        //instantiate the players at the right location
-        GameObject playerInstance1 = Instantiate(playerPf, spawnLocation1, Quaternion.identity);
-        GameObject playerInstance2 = Instantiate(playerPf, spawnLocation2, Quaternion.identity);
-        GameObject playerInstance3 = Instantiate(playerPf, spawnLocation3, Quaternion.identity);
-        GameObject playerInstance4 = Instantiate(playerPf, spawnLocation4, Quaternion.identity);
-        
+        Vector3[] spawnLocations = {
+            new Vector3(-6, 1.25f, 4),
+            new Vector3(-3, 1.25f, 4),
+            new Vector3(3, 1.25f, 4),
+            new Vector3(6, 1.25f, 4)
+        };
+
+        //instantiate players on the right location
+        GameObject[] players = {
+            Instantiate(vuurSpreukenaar, spawnLocations[0], Quaternion.identity),
+            Instantiate(waterSpreukenaar, spawnLocations[1], Quaternion.identity),
+            Instantiate(earthSpreukenaar, spawnLocations[2], Quaternion.identity),
+            Instantiate(windSpreukenaar, spawnLocations[3], Quaternion.identity)
+        };
+
         //give players there number
-        playerInstance1.GetComponent<HealthScript>().playerNum = 1;
-        playerInstance2.GetComponent<HealthScript>().playerNum = 2;
-        playerInstance3.GetComponent<HealthScript>().playerNum = 3;
-        playerInstance4.GetComponent<HealthScript>().playerNum = 4;
+        for(int i = 0; i < players.Length; i++) {
+            var healthScript = players[i].GetComponent<HealthScript>();
+            healthScript.playerNum = i + 1;
+        }
     }
 }
