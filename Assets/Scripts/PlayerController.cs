@@ -28,12 +28,13 @@ public class PlayerController : MonoBehaviour {
     //amount of jumps pulled from scriptable object
     private int maxJumpAmount;
     private int resetJumps;
-
+    private float knockbackJump;
 
     private void Awake() {
         moveSpeed = spreukenaarScriptableObject.moveSpeed;
         jumpHeight = spreukenaarScriptableObject.jumpHeight;
         jumpTimeMaxHeight = spreukenaarScriptableObject.jumpTimeMaxHeight;
+        knockbackJump = spreukenaarScriptableObject.knockbackJump;
     }
 
     private void Start() {
@@ -103,8 +104,8 @@ public class PlayerController : MonoBehaviour {
     public void Knockback(Vector2 horizontalValue) {
         //strength scaling with health
         float knockbackPower = healthScript.playerHealth * 0.05f;
-        Debug.Log(knockbackPower);
         knockbackValue = horizontalValue * knockbackPower;
+        jumpValue = knockbackJump * knockbackPower * 0.5f;
     }
 
     private void ApplyGravity() {
@@ -128,7 +129,7 @@ public class PlayerController : MonoBehaviour {
     private void FixedUpdate() {
         Walk();
         Run();
-
+        
         //apply movement to cc
         movementValue = new Vector3(xzValue.x * moveSpeed + knockbackValue.x, jumpValue, xzValue.y * moveSpeed + knockbackValue.y);
         if(cc != null && cc.enabled) {

@@ -75,6 +75,7 @@ MonoBehaviour:
   movementValue: {x: 0, y: 0, z: 0}
   lastMoveDir: {x: 0, y: 0, z: 0}
   spreukenaarScriptableObject: {fileID: 11400000, guid: 2bf5d3475ee8e4f40ada8343e5544bb7, type: 2}
+  isDebug: 0
 --- !u!114 &1345588220635955885
 MonoBehaviour:
   m_ObjectHideFlags: 0

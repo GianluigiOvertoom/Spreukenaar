@@ -159,9 +159,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275995ed6c3228c4c92b2ed164804d68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: 0
   playerNum: 0
-  <spreukenaarScriptableObject>k__BackingField: {fileID: 11400000, guid: 88ab3abca04594a4db6d809505c907b8, type: 2}
+  <spreukenaarScriptableObject>k__BackingField: {fileID: 11400000, guid: d40dd66e0fb26c14d99044016f7059b7, type: 2}
 --- !u!114 &2216015166877796301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,5 +175,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementValue: {x: 0, y: 0, z: 0}
   lastMoveDir: {x: 0, y: 0, z: 0}
-  spreukenaarScriptableObject: {fileID: 11400000, guid: 88ab3abca04594a4db6d809505c907b8, type: 2}
+  spreukenaarScriptableObject: {fileID: 11400000, guid: d40dd66e0fb26c14d99044016f7059b7, type: 2}
   isDebug: 1

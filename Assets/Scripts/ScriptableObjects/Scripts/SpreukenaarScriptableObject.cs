@@ -18,10 +18,10 @@ public class SpreukenaarScriptableObject : ScriptableObject {
     [field: SerializeField] public int maxJumpAmount {get; private set;} 
     [field: SerializeField] public float jumpHeight {get; private set;} 
     [field: SerializeField] public float jumpTimeMaxHeight {get; private set;}
+    [field: SerializeField] public float knockbackJump {get; private set;}
     
     //spreuk dmg
     public float knockbackMultiplier {get; private set;}
-    public float knockbackTime {get; private set;}
     public float projectileMoveSpeed {get; private set;}
     public float enviornmentDamage {get; private set;}
     public float initialHit {get; private set;}
@@ -32,7 +32,6 @@ public class SpreukenaarScriptableObject : ScriptableObject {
 
     private void OnEnable() {
         knockbackMultiplier = spreuken.knockbackMultiplier;
-        knockbackTime = spreuken.knockbackTime;
         projectileMoveSpeed = spreuken.projectileMoveSpeed;
         enviornmentDamage = spreuken.enviornmentDamage;
         initialHit = spreuken.initialHit;
