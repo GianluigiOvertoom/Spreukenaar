@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -2295026475945190108}
   - component: {fileID: 358986197698878722}
   - component: {fileID: 1345588220635955885}
+  - component: {fileID: 763437161008459724}
   m_Layer: 3
   m_Name: WindSpreukenaar
   m_TagString: Player
@@ -30,8 +31,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.25, z: 4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4002038004725925290}
   m_Father: {fileID: 0}
@@ -105,6 +106,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpellPrefab: {fileID: 8007807846535373962, guid: 233d670ff74c52a40869c9fd78e15d7c, type: 3}
   spreukenaarScriptableObject: {fileID: 11400000, guid: 2bf5d3475ee8e4f40ada8343e5544bb7, type: 2}
+--- !u!114 &763437161008459724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287669803855170462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95bf28adf1c66a04bb309842f9e67065, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6904037473546789749
 GameObject:
   m_ObjectHideFlags: 0

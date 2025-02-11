@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: -7529637343161613495}
   - component: {fileID: 7426124615425165541}
   - component: {fileID: 6190926695369297139}
+  - component: {fileID: 9184285078876953197}
   m_Layer: 3
   m_Name: FireSpreukenaar
   m_TagString: Player
@@ -192,3 +193,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpellPrefab: {fileID: 8007807846535373962, guid: e6a961a4bea11594b98051723814c791, type: 3}
   spreukenaarScriptableObject: {fileID: 11400000, guid: d40dd66e0fb26c14d99044016f7059b7, type: 2}
+--- !u!114 &9184285078876953197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6882098803254331762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95bf28adf1c66a04bb309842f9e67065, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

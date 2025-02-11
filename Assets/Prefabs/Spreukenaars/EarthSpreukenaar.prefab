@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3430283396659522651}
   - component: {fileID: 358986197698878722}
   - component: {fileID: 1345588220635955885}
+  - component: {fileID: 9207012299363980888}
   m_Layer: 3
   m_Name: EarthSpreukenaar
   m_TagString: Player
@@ -30,8 +31,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.25, z: 4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4002038004725925290}
   m_Father: {fileID: 0}
@@ -75,7 +76,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNum: 0
   <spreukenaarScriptableObject>k__BackingField: {fileID: 11400000, guid: 88ab3abca04594a4db6d809505c907b8, type: 2}
-  isDebug: 0
 --- !u!114 &358986197698878722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,6 +106,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpellPrefab: {fileID: 3587367112766006208, guid: d9d829dc463069047b5d06e909aba6f5, type: 3}
   spreukenaarScriptableObject: {fileID: 11400000, guid: 88ab3abca04594a4db6d809505c907b8, type: 2}
+--- !u!114 &9207012299363980888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287669803855170462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95bf28adf1c66a04bb309842f9e67065, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6904037473546789749
 GameObject:
   m_ObjectHideFlags: 0

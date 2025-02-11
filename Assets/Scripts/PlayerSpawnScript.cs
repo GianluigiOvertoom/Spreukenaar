@@ -12,10 +12,10 @@ public class PlayerSpawnScript : MonoBehaviour {
 
     private void Start() {
         Vector3[] spawnLocations = {
-            new Vector3(-6, 1.25f, 4),
-            new Vector3(-3, 1.25f, 4),
-            new Vector3(3, 1.25f, 4),
-            new Vector3(6, 1.25f, 4)
+            new Vector3(-6, 1.25f, 8),
+            new Vector3(-3, 1.25f, 8),
+            new Vector3(3, 1.25f, 8),
+            new Vector3(6, 1.25f, 8)
         };
 
         //instantiate players on the right location
