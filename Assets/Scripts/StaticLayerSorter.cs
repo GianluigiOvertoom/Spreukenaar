@@ -6,6 +6,6 @@ public class StaticLayerSorter : MonoBehaviour {
 
     private void Start() {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sortingOrder = (int)(transform.position.y * 100);
+        spriteRenderer.sortingOrder = -(int)(transform.position.z * 100);
     }
 }

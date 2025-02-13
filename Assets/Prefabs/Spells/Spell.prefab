@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8079803506502056307}
   - component: {fileID: 4265662994888885823}
+  - component: {fileID: 3203886465373521763}
   m_Layer: 6
   m_Name: SpellSprite
   m_TagString: Untagged
@@ -73,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2048447561
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -4151198476206427123, guid: eeb1a4f60df20b940b20b2420ec9e084, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -87,6 +88,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3203886465373521763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2329482014062215516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 497e339316c5a8743b96a183e54be292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8102533289626262582
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,7 +225,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8102533289626262582}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95bf28adf1c66a04bb309842f9e67065, type: 3}
   m_Name: 

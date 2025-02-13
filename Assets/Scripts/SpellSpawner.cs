@@ -45,7 +45,7 @@ public class SpellSpawner : MonoBehaviour {
         int maxSpreukenaarType = enumLength;
 
         //generate random int between 0 and enumlength
-        int randomEnumInt = UnityEngine.Random.Range(0, maxSpreukenaarType + 1);
+        int randomEnumInt = UnityEngine.Random.Range(0, maxSpreukenaarType - 1);
         
         string randomEnumIntString = randomEnumInt.ToString();
         
@@ -53,7 +53,7 @@ public class SpellSpawner : MonoBehaviour {
         Debug.Log("SpreukenaarTypeInt = " + randomEnumInt + " bijbehorende enum string = " + Enum.Parse<Element>(randomEnumIntString));
     }
 
-    //Deze functie moet eigenlijk in een spreukenaarStateManager script ofzo...
+    //Deze functie moet eigenlijk (ook) in een spreukenaarStateManager script ofzo...
     private void HandleState() {
         switch (spreukenaarType) {
             case Element.Vuur:
