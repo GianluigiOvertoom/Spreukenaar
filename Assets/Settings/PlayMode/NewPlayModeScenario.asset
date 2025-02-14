@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a689d91966dfb46499fb63f130d9b905, type: 3}
+  m_Name: NewPlayModeScenario
+  m_EditorClassIdentifier: 
+  m_Description: 
+  m_EnableEditors: 1
+  m_MainEditorInstance:
+    Name: Main Editor
+    <CorrespondingNodeId>k__BackingField: Main Editor|0_run
+    m_Nodes:
+    - Main Editor|0_run
+    - Main Editor|0_deploy
+    m_PlayerTag: 
+    m_InitialScene: {fileID: 102900000, guid: 3ec3def0bfd626246ba6525f2818c447, type: 3}
+  m_EditorInstances:
+  - Name: Player 2
+    <CorrespondingNodeId>k__BackingField: Player 2|1_run
+    m_Nodes:
+    - Player 2|1_run
+    - Player 2|1_deploy
+    m_PlayerTag: 
+    m_InitialScene: {fileID: 0}
+    m_AdvancedConfiguration:
+      StreamLogsToMainEditor: 0
+      LogsColor: {r: 0.3643, g: 0.581, b: 0.8679, a: 1}
+  - Name: Player 3
+    <CorrespondingNodeId>k__BackingField: Player 3|2_run
+    m_Nodes:
+    - Player 3|2_run
+    - Player 3|2_deploy
+    m_PlayerTag: 
+    m_InitialScene: {fileID: 0}
+    m_AdvancedConfiguration:
+      StreamLogsToMainEditor: 0
+      LogsColor: {r: 0.36470592, g: 0.8666667, b: 0.40316394, a: 1}
+  - Name: Player 4
+    <CorrespondingNodeId>k__BackingField: Player 4|3_run
+    m_Nodes:
+    - Player 4|3_run
+    - Player 4|3_deploy
+    m_PlayerTag: 
+    m_InitialScene: {fileID: 0}
+    m_AdvancedConfiguration:
+      StreamLogsToMainEditor: 0
+      LogsColor: {r: 0.8666667, g: 0.37915346, b: 0.36470592, a: 1}
+  m_LocalInstances:
+  - Name: Instance01
+    <CorrespondingNodeId>k__BackingField: Instance01 - Run
+    m_Nodes:
+    - Instance01 - Build
+    - Instance01 - Run
+    m_BuildProfile: {fileID: 11400000, guid: 1009d2a0887649142b60eb40d5e22e8b, type: 2}
+    advancedConfiguration:
+      m_StreamLogsToMainEditor: 1
+      m_LogsColor: {r: 0.8666667, g: 0.8537803, b: 0.36470592, a: 1}
+      m_Arguments: -screen-fullscreen 0 -screen-width 1024 -screen-height 720
+  m_RemoteInstances: []
+  m_OverridePort: 0
+  m_Port: 0
+  m_MainEditorInstanceObsolete:
+    rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
