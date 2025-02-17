@@ -1541,8 +1541,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1183417613}
   - component: {fileID: 1183417612}
+  - component: {fileID: 1183417614}
   m_Layer: 0
-  m_Name: SpellSpawner
+  m_Name: SpellManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1560,7 +1561,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 585191a477dfd8147ae8cee57a50bd5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 8102533289626262582, guid: c0379cf2fabc99a44900d976adc7b2bf, type: 3}
+  elementDb: {fileID: 11400000, guid: dcb3b36debc63fb4d8bd2284ba734a7c, type: 2}
+  defaultSpellPf: {fileID: 8102533289626262582, guid: c0379cf2fabc99a44900d976adc7b2bf, type: 3}
 --- !u!4 &1183417613
 Transform:
   m_ObjectHideFlags: 0
@@ -1576,6 +1578,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1183417614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183417611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 194ef668d2105894f901f0513ea5f3a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elementDb: {fileID: 11400000, guid: dcb3b36debc63fb4d8bd2284ba734a7c, type: 2}
 --- !u!1001 &1187797263
 PrefabInstance:
   m_ObjectHideFlags: 0

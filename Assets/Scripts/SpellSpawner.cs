@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class SpellSpawner : MonoBehaviour {
     //reference spell prefab
-    [SerializeField] private GameObject spell;
+    [SerializeField] private SpellDatabase elementDb;
+    [SerializeField] private GameObject defaultSpellPf;
     private float spellSpawnIntervall = 5f;
     private int spellCount;
     private int maxSpellAmount = 10;
@@ -11,10 +12,6 @@ public class SpellSpawner : MonoBehaviour {
     private Vector3 maxPos;
     private Vector3 randomPosition;
     private bool randomPosReset = true;
-
-    private void Start() {
-        GenerateRandomSpell();
-    }
 
     private enum Element {
         Vuur, 
@@ -26,49 +23,16 @@ public class SpellSpawner : MonoBehaviour {
     private Element spreukenaarType;
 
     private void GenerateRandomSpell() {
-        // pick random value from enum spreukenaarType
-        /*  1. Kijk naar de length van de enum v
-            2. Pak deze length en zet deze als maxSpreukenaarType v
-            3. Kies random getallen tussen 0 en maxSpreukenaarType v
-            4. Gebruik je randomized getal, dat getal als var toString en switchcase dat....*/
-        
-        
-        // enumLength = Enum.GetValues(typeof(SpreukenaarType));
-
-        //define start of enum count
         int enumLength = 0;
 
         foreach(Element spreukenaarType in Enum.GetValues(typeof(Element))) {
             enumLength++;
         }
 
-        int maxSpreukenaarType = enumLength;
-
-        //generate random int between 0 and enumlength
-        int randomEnumInt = UnityEngine.Random.Range(0, maxSpreukenaarType - 1);
+        int spreukenaarTypeAmount = enumLength;
         
-        string randomEnumIntString = randomEnumInt.ToString();
-        
-
-        Debug.Log("SpreukenaarTypeInt = " + randomEnumInt + " bijbehorende enum string = " + Enum.Parse<Element>(randomEnumIntString));
-    }
-
-    //Deze functie moet eigenlijk (ook) in een spreukenaarStateManager script ofzo...
-    private void HandleState() {
-        switch (spreukenaarType) {
-            case Element.Vuur:
-                // switch spreukenaar logic
-                break;
-            case Element.Water:
-                // switch spreukenaar logic
-                break;
-            case Element.Aarde:
-                // switch spreukenaar logic
-                break;
-            case Element.Wind:
-                // switch spreukenaar logic
-                break;
-        }
+        int randomEnumInt = UnityEngine.Random.Range(0, spreukenaarTypeAmount);
+        spreukenaarType = (Element)randomEnumInt;
     }
 
     private void Timer() {
@@ -94,7 +58,13 @@ public class SpellSpawner : MonoBehaviour {
 
     private void SpawnSpell() {
         randomPosReset = true;
-        Instantiate(spell, randomPosition, Quaternion.identity);
+        
+        GenerateRandomSpell();
+
+        GameObject newSpell = Instantiate(defaultSpellPf, randomPosition, Quaternion.identity);
+        SpellBehaviour spellBehaviour = newSpell.GetComponent<SpellBehaviour>();
+        spellBehaviour.SetSpellType(spreukenaarType.ToString());
+        spellBehaviour.ReferenceDb(elementDb);
         spellCount += 1;
     }
 

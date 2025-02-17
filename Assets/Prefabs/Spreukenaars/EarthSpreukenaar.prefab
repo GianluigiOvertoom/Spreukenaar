@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 358986197698878722}
   - component: {fileID: 1345588220635955885}
   - component: {fileID: 9207012299363980888}
+  - component: {fileID: 4563791178415686317}
   m_Layer: 3
   m_Name: EarthSpreukenaar
   m_TagString: Player
@@ -116,6 +117,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95bf28adf1c66a04bb309842f9e67065, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4563791178415686317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287669803855170462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abdff8f23e8d26540911105dd3aa296d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6904037473546789749

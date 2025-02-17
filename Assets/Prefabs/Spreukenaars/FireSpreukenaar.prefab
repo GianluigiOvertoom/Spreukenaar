@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 7426124615425165541}
   - component: {fileID: 6190926695369297139}
   - component: {fileID: 9184285078876953197}
+  - component: {fileID: 4725299004945585369}
   m_Layer: 3
   m_Name: FireSpreukenaar
   m_TagString: Player
@@ -203,5 +204,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95bf28adf1c66a04bb309842f9e67065, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4725299004945585369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6882098803254331762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abdff8f23e8d26540911105dd3aa296d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
