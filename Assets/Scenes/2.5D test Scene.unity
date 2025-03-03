@@ -1542,6 +1542,7 @@ GameObject:
   - component: {fileID: 1183417613}
   - component: {fileID: 1183417612}
   - component: {fileID: 1183417614}
+  - component: {fileID: 1183417615}
   m_Layer: 0
   m_Name: SpellManager
   m_TagString: Untagged
@@ -1591,6 +1592,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elementDb: {fileID: 11400000, guid: dcb3b36debc63fb4d8bd2284ba734a7c, type: 2}
+--- !u!114 &1183417615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183417611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c64811e40f859c84383b1bbc2c26821e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1187797263
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -5,7 +5,6 @@ using UnityEngine;
 public class SpellBehaviour : MonoBehaviour {
     private SpriteRenderer spriteRenderer;
     private string spellType;
-    private SpellDatabase typeDb;
     private GameObject spellManager;
     private TypeHandler typeHandler;
 
@@ -22,14 +21,17 @@ public class SpellBehaviour : MonoBehaviour {
     }
 
     public void ReferenceDb(SpellDatabase spellDatabase) {
-        typeDb = spellDatabase;
-        typeDb.GetType(spellType);
+        spellDatabase.GetTypeFromDb(spellType);
     }  
 
     private void OnTriggerEnter(Collider other) {
         if(other.CompareTag("Player")) {
+            // 'other' gameobject is the player to change's Go die in de trigger loopt van een boekje
+            string oldType = other.GetComponent<PlayerTypeBehaviour>().GetPreviousType(); 
+            PlayerStatsManager playerStats = other.GetComponent<PlayerStatsManager>();
+
             SpriteRenderer playerSpriteRenderer = other.GetComponentInChildren<SpriteRenderer>();
-            typeHandler.ChangePlayerType(spellType, playerSpriteRenderer);
+            typeHandler.ChangePlayerType(spellType, playerSpriteRenderer, /*other.playerStats,*/ oldType);
             //typeHandler.ChangeBookType(default);
             gameObject.SetActive(false);
         }

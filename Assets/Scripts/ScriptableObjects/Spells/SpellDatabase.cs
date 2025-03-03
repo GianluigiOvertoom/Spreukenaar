@@ -3,9 +3,9 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "SpellDatabase", menuName = "ScriptableObjects/Spell Database")]
 public class SpellDatabase : ScriptableObject {
-    public List<SpellScriptableObject> soList;
+    private List<SpellScriptableObject> soList;
 
-    public SpellScriptableObject GetType(string type) {
+    public SpellScriptableObject GetTypeFromDb(string type) {
         foreach(SpellScriptableObject so in soList) {
             if(so.type == type) {
                 return so;

@@ -16,8 +16,10 @@ public class ProjectileBehaviour : MonoBehaviour {
     private WallBehaviour wallScript;
     [SerializeField] private LayerMask collisionLayers;    
     [field: SerializeField] public SpreukenaarScriptableObject spreukenaarScriptableObject {get; private set;}
+    private PlayerStatsManager playerStatsManager;
 
     private void Start() { 
+        //Dit moet vervangen worden door een functie, de functie uit playerstatsmanager.functie();
         knockbackMultiplier = spreukenaarScriptableObject.knockbackMultiplier;
         projectileMoveSpeed = spreukenaarScriptableObject.projectileMoveSpeed;
         enviornmentDamage = spreukenaarScriptableObject.enviornmentDamage;
@@ -27,6 +29,9 @@ public class ProjectileBehaviour : MonoBehaviour {
         amountOfTicks = spreukenaarScriptableObject.amountOfTicks;
         tickInterval = spreukenaarScriptableObject.tickInterval;
         moveDir = pcScript.lastMoveDir;
+        
+        playerStatsManager.SetPlayerStats();
+
 
         if(pcScript.lastMoveDir == new Vector3(0,0,0)) {
             moveDir = new Vector3(0,0,-1);

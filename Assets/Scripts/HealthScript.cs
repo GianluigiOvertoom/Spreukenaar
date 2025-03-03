@@ -15,7 +15,6 @@ public class HealthScript : MonoBehaviour {
     
     public float playerHealth {private set; get;}
     private CharacterController cc;
-    private SpriteRenderer spRend;
     private GameObject canvas;
     public int playerNum;
     private TextMeshProUGUI healthDisplay; 
@@ -26,7 +25,6 @@ public class HealthScript : MonoBehaviour {
         
         playerHealth = 0;
         cc = GetComponent<CharacterController>();
-        spRend = GetComponentInChildren<SpriteRenderer>();
         canvas = GameObject.Find("Canvas");
         healthDisplay = canvas.transform.GetChild(playerNum - 1).GetComponent<TextMeshProUGUI>();  
     }
@@ -46,20 +44,6 @@ public class HealthScript : MonoBehaviour {
         }
     }
 
-    // private void DeathCheck() {
-    //     if(playerHealth <= 0) {
-    //         playerHealth = 0;
-    //         //disable character controller/ (collision)
-    //         cc.enabled = false;
-    //         //fade out
-    //         spRend.color = spRend.color - new Color(0,0,0,0.5f) * Time.deltaTime;
-    //         if(spRend.color.a <= 0) {
-    //             GetComponent<HealthScript>().enabled = false;
-    //             gameObject.SetActive(false);
-    //         }
-    //     }
-    // }
-
     private void DisplayHealth() {
         if(playerNum > -1) {
             healthDisplay.text = "Target " + playerNum + " : " + playerHealth + " %";        
@@ -67,7 +51,6 @@ public class HealthScript : MonoBehaviour {
     }
     
     private void Update() {
-        // DeathCheck();
         DisplayHealth(); 
     }
 }
